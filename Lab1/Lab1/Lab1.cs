@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Lab1
+namespace Lab
 {
-    public static class Lab1
+    public static class Lab
     {
         public static int Add(int a, int b)
         {
