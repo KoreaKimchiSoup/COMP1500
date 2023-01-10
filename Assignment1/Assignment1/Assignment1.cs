@@ -7,40 +7,41 @@ namespace Assignment1
     {
         public static void PrintIntegers(StreamReader input, StreamWriter output, int width)
         {
-            int s1 = int.Parse(input.ReadLine());
-            int s2 = int.Parse(input.ReadLine());
-            int s3 = int.Parse(input.ReadLine());
-            int s4 = int.Parse(input.ReadLine());
-            int s5 = int.Parse(input.ReadLine());
-            output.WriteLine("{0, 14}{1, 14}{2,14}", "oct", "dec", "hex");
-            output.WriteLine($"s1: {s1} -> {Convert.ToString(s1, 8)}");
-            output.WriteLine($"s1: {s1} -> {Convert.ToString(s1, 10)}");
-            output.WriteLine($"s1: {s1} -> {Convert.ToString(s1, 16)}");
+            int num1 = int.Parse(input.ReadLine());
+            int num2 = int.Parse(input.ReadLine());
+            int num3 = int.Parse(input.ReadLine());
+            int num4 = int.Parse(input.ReadLine());
+            int num5 = int.Parse(input.ReadLine());
+            string oct = "oct";
+            string dec = "dec";
+            string hex = "hex";
 
-            Console.WriteLine();
+            if (width < 10)
+            {
+                width = 10;
+                output.Write(oct.PadLeft(width));
+                output.Write(dec.PadLeft(width));
+                output.WriteLine(hex.PadLeft(width));
+            }
+            output.Write(Convert.ToString(num1, 8).PadLeft(width));
+            output.Write(Convert.ToString(num1, 10).PadLeft(width));
+            output.WriteLine(Convert.ToString(num1, 16).PadLeft(width));
 
-            output.WriteLine($"s2: {s2} -> {Convert.ToString(s2, 8)}");
-            output.WriteLine($"s2: {s2} -> {Convert.ToString(s2, 10)}");
-            output.WriteLine($"s2: {s2} -> {Convert.ToString(s2, 16)}");
+            output.Write(Convert.ToString(num2, 8).PadLeft(width));
+            output.Write(Convert.ToString(num2, 10).PadLeft(width));
+            output.WriteLine(Convert.ToString(num2, 16).PadLeft(width));
 
-            Console.WriteLine();
+            output.Write(Convert.ToString(num3, 8).PadLeft(width));
+            output.Write(Convert.ToString(num3, 10).PadLeft(width));
+            output.WriteLine(Convert.ToString(num3, 16).PadLeft(width));
 
-            output.WriteLine($"s3: {s3} -> {Convert.ToString(s3, 8)}");
-            output.WriteLine($"s3: {s3} -> {Convert.ToString(s3, 10)}");
-            output.WriteLine($"s3: {s3} -> {Convert.ToString(s3, 16)}");
+            output.Write(Convert.ToString(num4, 8).PadLeft(width));
+            output.Write(Convert.ToString(num4, 10).PadLeft(width));
+            output.WriteLine(Convert.ToString(num4, 16).PadLeft(width));
 
-            Console.WriteLine();
-
-            output.WriteLine($"s4: {s4} -> {Convert.ToString(s4, 8)}");
-            output.WriteLine($"s4: {s4} -> {Convert.ToString(s4, 10)}");
-            output.WriteLine($"s4: {s4} -> {Convert.ToString(s4, 16)}");
-
-            Console.WriteLine();
-
-            output.WriteLine($"s5: {s5} -> {Convert.ToString(s5, 8)}");
-            output.WriteLine($"s5: {s5} -> {Convert.ToString(s5, 10)}");
-            output.WriteLine($"s5: {s5} -> {Convert.ToString(s5, 16)}");
-
+            output.Write(Convert.ToString(num5, 8).PadLeft(width));
+            output.Write(Convert.ToString(num5, 10).PadLeft(width));
+            output.WriteLine(Convert.ToString(num5, 16).PadLeft(width));
         }
 
         public static void PrintStats(StreamReader input, StreamWriter output)
