@@ -32,3 +32,22 @@ namespace Assignment1
         }
     }
 }
+
+/*
+     double[] numbers = new double[] { 3.14, 2.718, 1.618, 6.02, 9.8 }; 
+     double max = numbers[0]; 
+     double min = numbers[0];
+
+     for (int i = 1; i < numbers.Length; i++) 
+     { 
+        if (numbers[i] > max) 
+        {
+            max = numbers[i];
+        } 
+
+        if (numbers[i] < min) 
+         {
+            min = numbers[i]; 
+         } 
+}
+ */ 
