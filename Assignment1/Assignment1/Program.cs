@@ -25,7 +25,7 @@ namespace Assignment1
             { AutoFlush = true })
             {
                 Console.WriteLine("Enter your 5 digits for PrintIntegers():");
-                Assignment1.PrintIntegers(READER1, WRITER, 10);
+                Assignment1.PrintIntegers(READER1, WRITER, 1);
 
                 Console.WriteLine("Enter your 5 digits for PrintStats():");
                 Assignment1.PrintStats(READER2, WRITER);

@@ -13,6 +13,12 @@ namespace Assignment1
             int num4 = int.Parse(input.ReadLine());
             int num5 = int.Parse(input.ReadLine());
 
+            if (width < 10)
+            {
+                width = 10;
+            }
+
+            /*
             string numOct1 = Convert.ToString(num1, 8);
             string numDec1 = Convert.ToString(num1, 10);
             string numHex1 = Convert.ToString(num1, 16).ToUpper();
@@ -33,21 +39,18 @@ namespace Assignment1
             string numDec5 = Convert.ToString(num5, 10);
             string numHex5 = Convert.ToString(num5, 16).ToUpper();
 
-            if (width < 10)
-            {
-                return;
-            }
-            else
-            {
-                width = 10;
-                output.Write("oct".PadRight(width));
-                output.Write("dec".PadRight(width));
-                output.WriteLine("hex".PadRight(width));
-            }
+            string oct = "oct";
+            string dec = "dec";
+            string hex = "hex";
 
-            output.Write(string.Format("{0," + width + "}", numOct1));
-            output.Write(string.Format("{0," + width + "}", numDec1));
-            output.WriteLine(string.Format("{0," + width + "}", numHex1));
+            
+            output.Write("{0," + width + "}", oct);
+            output.Write("{0," + width + "}", dec);
+            output.WriteLine("{0," + width + "}", hex);
+
+            output.Write("{0," + width + "}", numOct1);
+            output.Write("{0," + width + "}", numDec1);
+            output.WriteLine("{0," + width + "}", numHex1);
 
             output.Write(string.Format("{0," + width + "}", numOct2));
             output.Write(string.Format("{0," + width + "}", numDec2));
@@ -64,29 +67,32 @@ namespace Assignment1
             output.Write(string.Format("{0," + width + "}", numOct5));
             output.Write(string.Format("{0," + width + "}", numDec5));
             output.WriteLine(string.Format("{0," + width + "}", numHex5));
+            */
 
-            /*
-            output.Write(string.Format("{0, 10:X}", num1));
+            output.Write("oct".PadLeft(width));
+            output.Write("dec".PadLeft(width + 1));
+            output.WriteLine("hex".PadLeft(width + 1));
+
             output.Write(Convert.ToString(num1, 8).PadLeft(width));
-            output.Write(Convert.ToString(num1, 10).PadLeft(width));
-            output.WriteLine(Convert.ToString(num1, 16).PadLeft(width).ToUpper());
+            output.Write(Convert.ToString(num1, 10).PadLeft(width + 1));
+            output.WriteLine(Convert.ToString(num1, 16).PadLeft(width + 1).ToUpper());
 
             output.Write(Convert.ToString(num2, 8).PadLeft(width));
-            output.Write(Convert.ToString(num2, 10).PadLeft(width));
-            output.WriteLine(Convert.ToString(num2, 16).PadLeft(width).ToUpper());
+            output.Write(Convert.ToString(num2, 10).PadLeft(width + 1));
+            output.WriteLine(Convert.ToString(num2, 16).PadLeft(width + 1).ToUpper());
 
             output.Write(Convert.ToString(num3, 8).PadLeft(width));
-            output.Write(Convert.ToString(num3, 10).PadLeft(width));
-            output.WriteLine(Convert.ToString(num3, 16).PadLeft(width).ToUpper());
+            output.Write(Convert.ToString(num3, 10).PadLeft(width + 1));
+            output.WriteLine(Convert.ToString(num3, 16).PadLeft(width + 1).ToUpper());
 
             output.Write(Convert.ToString(num4, 8).PadLeft(width));
-            output.Write(Convert.ToString(num4, 10).PadLeft(width));
-            output.WriteLine(Convert.ToString(num4, 16).PadLeft(width).ToUpper());
+            output.Write(Convert.ToString(num4, 10).PadLeft(width + 1));
+            output.WriteLine(Convert.ToString(num4, 16).PadLeft(width + 1).ToUpper());
 
             output.Write(Convert.ToString(num5, 8).PadLeft(width));
-            output.Write(Convert.ToString(num5, 10).PadLeft(width));
-            output.WriteLine(Convert.ToString(num5, 16).PadLeft(width).ToUpper());
-            */
+            output.Write(Convert.ToString(num5, 10).PadLeft(width + 1));
+            output.WriteLine(Convert.ToString(num5, 16).PadLeft(width + 1).ToUpper());
+            
         }
         public static void PrintStats(StreamReader input, StreamWriter output)
         {
@@ -116,7 +122,6 @@ namespace Assignment1
             output.WriteLine("{0}{1, 22:f3}", stringMax, max);
             output.WriteLine("{0}{1, 22:f3}", stringSum, sum);
             output.WriteLine("{0}{1, 18:f3}", stringAverage, average);
-
         }
     }
 }
