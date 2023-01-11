@@ -27,23 +27,23 @@ namespace Assignment1
 
             output.Write(Convert.ToString(num1, 8).PadLeft(width));
             output.Write(Convert.ToString(num1, 10).PadLeft(width));
-            output.WriteLine(Convert.ToString(num1, 16).PadLeft(width));
+            output.WriteLine(Convert.ToString(num1, 16).PadLeft(width).ToUpper());
 
             output.Write(Convert.ToString(num2, 8).PadLeft(width));
             output.Write(Convert.ToString(num2, 10).PadLeft(width));
-            output.WriteLine(Convert.ToString(num2, 16).PadLeft(width));
+            output.WriteLine(Convert.ToString(num2, 16).PadLeft(width).ToUpper());
 
             output.Write(Convert.ToString(num3, 8).PadLeft(width));
             output.Write(Convert.ToString(num3, 10).PadLeft(width));
-            output.WriteLine(Convert.ToString(num3, 16).PadLeft(width));
+            output.WriteLine(Convert.ToString(num3, 16).PadLeft(width).ToUpper());
 
             output.Write(Convert.ToString(num4, 8).PadLeft(width));
             output.Write(Convert.ToString(num4, 10).PadLeft(width));
-            output.WriteLine(Convert.ToString(num4, 16).PadLeft(width));
+            output.WriteLine(Convert.ToString(num4, 16).PadLeft(width).ToUpper());
 
             output.Write(Convert.ToString(num5, 8).PadLeft(width));
             output.Write(Convert.ToString(num5, 10).PadLeft(width));
-            output.WriteLine(Convert.ToString(num5, 16).PadLeft(width));
+            output.WriteLine(Convert.ToString(num5, 16).PadLeft(width).ToUpper());
         }
 
         public static void PrintStats(StreamReader input, StreamWriter output)
