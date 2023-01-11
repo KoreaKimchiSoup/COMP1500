@@ -107,15 +107,15 @@ namespace Assignment1
             string stringSum = "Sum";
             string stringAverage = "Average";
 
-            output.WriteLine("{0, 24:f3}", num1);
-            output.WriteLine("{0, 24:f3}", num2);
-            output.WriteLine("{0, 24:f3}", num3);
-            output.WriteLine("{0, 24:f3}", num4);
-            output.WriteLine("{0, 24:f3}", num5);
-            output.WriteLine("{0}{1, 21:f3}", stringMin, min);
-            output.WriteLine("{0}{1, 21:f3}", stringMax, max);
-            output.WriteLine("{0}{1, 21:f3}", stringSum, sum);
-            output.WriteLine("{0}{1, 17:f3}", stringAverage, average);
+            output.WriteLine("{0, 25:f3}", num1);
+            output.WriteLine("{0, 25:f3}", num2);
+            output.WriteLine("{0, 25:f3}", num3);
+            output.WriteLine("{0, 25:f3}", num4);
+            output.WriteLine("{0, 25:f3}", num5);
+            output.WriteLine("{0}{1, 22:f3}", stringMin, min);
+            output.WriteLine("{0}{1, 22:f3}", stringMax, max);
+            output.WriteLine("{0}{1, 22:f3}", stringSum, sum);
+            output.WriteLine("{0}{1, 18:f3}", stringAverage, average);
 
         }
     }
