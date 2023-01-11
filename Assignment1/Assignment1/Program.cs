@@ -9,7 +9,7 @@ namespace Assignment1
     {
         static void Main(string[] args)
         {
-            string integerInput = "25\n26\n10\n22\n16";
+            string integerInput = "250\n260\n100\n220\n160";
             string floatInput = "12.5\n25.262\n12\n10008.2\n-1224.2";
 
             byte[] buffer1 = Encoding.UTF8.GetBytes(integerInput);
