@@ -9,8 +9,8 @@ namespace Assignment1
     {
         static void Main(string[] args)
         {
-            string integerInput = "250\n260\n100\n220\n160";
-            string floatInput = "12.5\n25.262\n12\n10008.2\n-1224.2";
+            string integerInput = "52\n102\n1\n2382\n409";
+            string floatInput = "2.23\n-1912.87233125\n959999\n1\n34.55567";
 
             byte[] buffer1 = Encoding.UTF8.GetBytes(integerInput);
             byte[] buffer2 = Encoding.UTF8.GetBytes(floatInput);
@@ -21,7 +21,8 @@ namespace Assignment1
             using (StreamReader READER2 = new StreamReader(new MemoryStream(buffer2)))
             //using (StreamReader READER = new StreamReader(Console.OpenStandardInput()))
            
-            using (StreamWriter WRITER = new StreamWriter(Console.OpenStandardOutput()) { AutoFlush = true })
+            using (StreamWriter WRITER = new StreamWriter(Console.OpenStandardOutput())
+            { AutoFlush = true })
             {
                 Console.WriteLine("Enter your 5 digits for PrintIntegers():");
                 Assignment1.PrintIntegers(READER1, WRITER, 10);
