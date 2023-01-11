@@ -20,11 +20,11 @@ namespace Assignment1
             else
             {
                 width = 10;
-                output.Write(" oct".PadLeft(width));
+                output.Write("oct".PadLeft(width));
                 output.Write("dec".PadLeft(width));
                 output.WriteLine("hex".PadLeft(width));
             }
-
+            
             output.Write(Convert.ToString(num1, 8).PadLeft(width));
             output.Write(Convert.ToString(num1, 10).PadLeft(width));
             output.WriteLine(Convert.ToString(num1, 16).PadLeft(width).ToUpper());
@@ -70,8 +70,10 @@ namespace Assignment1
                     min = numbers[i];
                 }
             }
+
             double sum = num1 + num2 + num3 + num4 + num5;
             double average = sum / numbers.Length;
+
             string stringMin = "Min";
             string stringMax = "Max";
             string stringSum = "Sum";
