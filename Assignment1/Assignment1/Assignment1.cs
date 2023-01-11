@@ -25,9 +25,8 @@ namespace Assignment1
                 output.WriteLine("hex".PadLeft(width));
             }
 
-            output.WriteLine();
             output.Write(Convert.ToString(num1, 8).PadLeft(width));
-            output.Write( Convert.ToString(num1, 10).PadLeft(width));
+            output.Write(Convert.ToString(num1, 10).PadLeft(width));
             output.WriteLine(Convert.ToString(num1, 16).PadLeft(width));
 
             output.Write(Convert.ToString(num2, 8).PadLeft(width));
@@ -76,7 +75,7 @@ namespace Assignment1
             string stringMin = "Min";
             string stringMax = "Max";
             string stringSum = "Sum";
-            string stringAverage = "average";
+            string stringAverage = "Average";
 
             output.WriteLine("{0, 25:f3}", num1);
             output.WriteLine("{0, 25:f3}", num2);
