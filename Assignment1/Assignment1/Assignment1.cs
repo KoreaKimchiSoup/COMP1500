@@ -7,11 +7,11 @@ namespace Assignment1
     {
         public static void PrintIntegers(StreamReader input, StreamWriter output, int width)
         {
-            long num1 = long.Parse(input.ReadLine());
-            long num2 = long.Parse(input.ReadLine());
-            long num3 = long.Parse(input.ReadLine());
-            long num4 = long.Parse(input.ReadLine());
-            long num5 = long.Parse(input.ReadLine());
+            int num1 = int.Parse(input.ReadLine());
+            int num2 = int.Parse(input.ReadLine());
+            int num3 = int.Parse(input.ReadLine());
+            int num4 = int.Parse(input.ReadLine());
+            int num5 = int.Parse(input.ReadLine());
 
             if (width < 10)
             {
