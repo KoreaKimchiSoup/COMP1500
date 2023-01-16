@@ -32,7 +32,7 @@ namespace Lab3
             return rountCalculateIndividualCost;
         }
 
-        public static uint CalculatePlayerCount(StreamReader input, double totalCost)
+        public static uint CalculatePayerCount(StreamReader input, double totalCost)
         {
             double individualCostInput = double.Parse(input.ReadLine());
             double individualCost = totalCost / individualCostInput;
