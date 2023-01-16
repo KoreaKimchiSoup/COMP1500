@@ -19,8 +19,8 @@ namespace Lab3
             double tax = totalCostInput * 0.05;
             double tip = (totalCostInput + tax) * userTip / 100;
             double totalCost = totalCostInput + tax + tip;
-            double rountTotalCost = Math.Round(totalCost, 2);
-            return rountTotalCost;
+            double roundTotalCost = Math.Round(totalCost, 2);
+            return roundTotalCost;
         }
 
         public static double CalculateIndividualCost(StreamReader input, double totalCost)
@@ -34,10 +34,12 @@ namespace Lab3
 
         public static uint CalculatePayerCount(StreamReader input, double totalCost)
         {
+            Console.WriteLine(totalCost);
             double individualCostInput = double.Parse(input.ReadLine());
             double individualCost = totalCost / individualCostInput;
+            double roundIndividualCost = Math.Ceiling(individualCost);
 
-            return (uint)individualCost;
+            return (uint)roundIndividualCost;
         }
     }
 }
