@@ -27,8 +27,8 @@ namespace Lab3
                 double individualCost = RestaurantBillCalculator.CalculateIndividualCost(reader2, totalCost);
                 Debug.Assert(individualCost == 54.14);
 
-                uint playerCount = RestaurantBillCalculator.CalculatePayerCount(reader3, totalCost);
-                Debug.Assert(playerCount == 9);
+                uint payerCount = RestaurantBillCalculator.CalculatePayerCount(reader3, totalCost);
+                Debug.Assert(payerCount == 9);
             }
         }
     }
