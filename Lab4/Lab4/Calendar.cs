@@ -25,11 +25,7 @@
 
         public static int GetDaysInMonth(uint year, uint month)
         {
-            if (year >= 9999)
-            {
-                return -1;
-            }
-            else if (month >= 13 && month == 0)
+            if (year > 9999 || month < 1 || month > 12)
             {
                 return -1;
             }
