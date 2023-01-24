@@ -34,7 +34,7 @@
             // 2월달이 윤년인지 평년인지 (28 or 29)
             if (month == 2)
             {
-                if (year % 4 == 0 && year % 100 == 0 && year % 400 != 0)
+                if (year % 4 != 0)
                 {
                     return 28;
                 }
@@ -46,7 +46,7 @@
                 {
                     return 29;
                 }
-                else if (year % 4 != 0 && year % 100 != 0 && year % 400 != 0)
+                else if (year % 4 == 0 && year % 100 == 0 && year % 400 != 0)
                 {
                     return 28;
                 }
