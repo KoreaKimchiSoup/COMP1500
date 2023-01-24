@@ -58,7 +58,7 @@
             {
                 return 31;
             }
-            else if (month % 2 == 0) // 8 ~ 12
+            else if (month >= 8 && month % 2 == 0) // 8 ~ 12
             {
                 return 31;
             }            
