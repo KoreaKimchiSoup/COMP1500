@@ -53,6 +53,10 @@
             {// 시작, 혹은 끝 index가 매출 데이터 수보다 이상일 때
                 return -1;
             }
+            else if (revenuePerDay[start] < revenuePerDay[end])
+            {
+                return -1;
+            }
             else if (end < start)
             {// 시작 색인이 끝 색인보다 클 때
                 return -1;
