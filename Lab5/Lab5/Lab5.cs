@@ -49,20 +49,12 @@
 
         public static double CalculateTotalRevenue(double[] revenuePerDay, uint start, uint end)
         {
-            if (revenuePerDay[start] > revenuePerDay.Length && revenuePerDay[end] > revenuePerDay.Length)
-            {// 시작, 혹은 끝 index가 매출 데이터 수보다 이상일 때
-                return -1;
-            }
-            else if (revenuePerDay[start] < revenuePerDay[end])
+            if (revenuePerDay.Length == 0)
             {
                 return -1;
             }
-            else if (end < start)
-            {// 시작 색인이 끝 색인보다 클 때
-                return -1;
-            }
-            else if (revenuePerDay.Length <= 0)
-            {// 매출 데이터(요소) 수가 0일 때
+            else if (start < revenuePerDay.Length)
+            {
                 return -1;
             }
             
