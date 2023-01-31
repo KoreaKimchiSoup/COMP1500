@@ -4,11 +4,45 @@
     {
         public static bool TryFixData(uint[] usersPerDay, double[] revenuePerDay)
         {//                                  일일 사용자           일일 매출            
+
+            double[] revenuePerDayCopy = new double[revenuePerDay.Length];
+            for (int i = 0; i < revenuePerDayCopy.Length; i++)
+            {
+                revenuePerDayCopy[i] = revenuePerDay[i];
+            }
+
+            for (int i = 0; i < revenuePerDayCopy.Length; i++)
+            {
+                if (revenuePerDay[i] != revenuePerDayCopy[i])
+                {
+                    revenuePerDay[i] = revenuePerDayCopy[i];
+                    return true;
+                }
+            }
             return false;
         }
 
         public static int GetInvalidEntryCount(uint[] usersPerDay, double[] revenuePerDay)
         {
+            if (usersPerDay.Length != revenuePerDay.Length)
+            {
+                return -1;
+            }
+            else if (usersPerDay.Length == 0 && revenuePerDay.Length == 0)
+            {
+                return -1;
+            }
+
+            int invalidIndex = 0;
+            for (int i = 0; i < usersPerDay.Length; i++)
+            {
+                if (usersPerDay[i] != revenuePerDay[i])
+                {
+                    invalidIndex++;
+                }
+                return invalidIndex;
+            }
+
             return -1;
         }
 
