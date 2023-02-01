@@ -3,7 +3,17 @@
     public static class Lab5
     {
         public static bool TryFixData(uint[] usersPerDay, double[] revenuePerDay)
-        {//                                  일일 사용자           일일 매출            
+        {//                                  일일 사용자           일일 매출
+            double[] dArray = new double[revenuePerDay.Length];
+            for (int i = 0; i < usersPerDay.Length; i++)
+            {
+                if (revenuePerDay[i] != revenuePerDay[i])
+                {
+                    revenuePerDay[i] = dArray[i];
+                    return true;
+                }
+            }
+
             return false;
         }
 
@@ -34,13 +44,14 @@
                 return -1;
             }
 
-            if (start > revenuePerDay.Length)
-            {// 시작, 혹은 끝 index가 매출 데이터 수보다 이상일 때
+            if (revenuePerDay[start] > revenuePerDay.Length)
+            {// 시작, index가 매출 데이터 수보다 이상일 때
                 return -1;
             }
 
-            if (end > revenuePerDay.Length)
-            {
+            if (revenuePerDay[end] > revenuePerDay.Length)
+            {// 끝 index가 매출 데이터 수보다 이상일 때
+
                 return -1;
             }
 
