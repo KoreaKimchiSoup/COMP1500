@@ -44,18 +44,23 @@
                 return -1;
             }
 
-            if (revenuePerDay[start] > revenuePerDay.Length)
+            if (start > revenuePerDay.Length)
             {// 시작, index가 매출 데이터 수보다 이상일 때
                 return -1;
             }
 
-            if (revenuePerDay[end] > revenuePerDay.Length)
+            if (end > revenuePerDay.Length)
             {// 끝 index가 매출 데이터 수보다 이상일 때
 
                 return -1;
             }
 
             if (start > end)
+            {
+                return -1;
+            }
+
+            if (start < end)
             {
                 return -1;
             }
