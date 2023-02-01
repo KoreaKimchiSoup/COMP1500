@@ -19,7 +19,7 @@
 
         public static int GetInvalidEntryCount(uint[] usersPerDay, double[] revenuePerDay)
         {
-            int InvalidEntryCount = 0;
+            int invalidEntryCount = 0;
             if (usersPerDay.Length != revenuePerDay.Length)
             {
                 return -1;
@@ -29,10 +29,10 @@
             {
                 if (usersPerDay[i] != revenuePerDay[i])
                 {
-                    InvalidEntryCount++;
+                    invalidEntryCount++;
                 }
             }
-            return InvalidEntryCount;
+            return invalidEntryCount;
         }
 
         public static double CalculateTotalRevenue(double[] revenuePerDay, uint start, uint end)
