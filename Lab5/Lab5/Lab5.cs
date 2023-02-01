@@ -44,14 +44,14 @@ namespace Lab5
                     revenuePerDay[i] = Math.Round(revenuePerDay[i], 2);
                 }
             }
-                        
+
             return bFixed;
         }
 
 
         public static int GetInvalidEntryCount(uint[] usersPerDay, double[] revenuePerDay)
-        {            
-            if (usersPerDay.Length != revenuePerDay.Length)
+        {
+            if (revenuePerDay.Length != usersPerDay.Length)
             {
                 return -1;
             }
@@ -72,7 +72,12 @@ namespace Lab5
         {
             double dNum = 0;
 
-            if (start > revenuePerDay.Length || end > revenuePerDay.Length)
+            if (start > revenuePerDay.Length)
+            {// 시작, 혹은 끝 index가 매출 데이터 수보다 이상일 때
+                return -1;
+            }
+
+            if (end > revenuePerDay.Length)
             {// 시작, 혹은 끝 index가 매출 데이터 수보다 이상일 때
                 return -1;
             }
@@ -87,14 +92,12 @@ namespace Lab5
                 return -1;
             }
 
-            if (start <= end)
-            {// 시작 색인이 끝 색인보다 이하일 때
-                for (uint i = start; i <= end; i++)
-                {
-                    dNum += revenuePerDay[i];
-                }
+            for (uint i = start; i <= end; i++)
+            {
+                dNum += revenuePerDay[i];
             }
+
             return dNum;
         }
-    }
+    }    
 }
