@@ -4,15 +4,14 @@
     {
         public static bool TryFixData(uint[] usersPerDay, double[] revenuePerDay)
         {//                                  일일 사용자           일일 매출
-            double[] dArray = new double[revenuePerDay.Length];
-            for (int i = 0; i < usersPerDay.Length; i++)
-            {
-                if (revenuePerDay[i] != revenuePerDay[i])
-                {
-                    revenuePerDay[i] = dArray[i];
-                    return true;
-                }
-            }
+            /*
+               R = u / 2                  0 <= u <= 10인 경우
+               R = 16 * u / 5 - 27        10 < u <= 100인 경우
+               R = u^2 / 4 - 2*u - 2007   100 < u <= 1000인 경우
+               R = 245743 + u / 4         u > 1000인 경우
+
+               R은 매출 u는 사용자 수를 의미
+             */
 
             return false;
         }
@@ -39,11 +38,6 @@
         {
             double dNum = 0;
 
-            if (revenuePerDay.Length == 0)
-            {// 매출 데이터(요소) 수가 0일 때
-                return -1;
-            }
-
             if (start > revenuePerDay.Length)
             {// 시작, index가 매출 데이터 수보다 이상일 때
                 return -1;
@@ -60,8 +54,8 @@
                 return -1;
             }
 
-            if (start < end)
-            {
+            if (revenuePerDay.Length == 0)
+            {// 매출 데이터(요소) 수가 0일 때
                 return -1;
             }
 
