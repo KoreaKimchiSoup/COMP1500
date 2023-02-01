@@ -6,7 +6,7 @@ namespace Lab5
     {
         public static bool TryFixData(uint[] usersPerDay, double[] revenuePerDay)
         {//                                  일일 사용자           일일 매출
-            bool isFixed = false;
+            bool bFixed = false;
             if (usersPerDay.Length != revenuePerDay.Length)
             {
                 return false;
@@ -17,7 +17,7 @@ namespace Lab5
                 if (double.IsNaN(revenuePerDay[i]))
                 {
                     revenuePerDay[i] = usersPerDay[i];
-                    isFixed = true;
+                    bFixed = true;
                 }
             }
 
@@ -45,7 +45,7 @@ namespace Lab5
                 }
             }
                         
-            return isFixed;
+            return bFixed;
         }
 
 
