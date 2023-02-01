@@ -72,17 +72,17 @@ namespace Lab5
         {
             double dNum = 0;
 
-            if (revenuePerDay.Length == 0)
-            {// 매출 데이터(요소) 수가 0일 때
-                return -1;
-            }
-
             if (start > revenuePerDay.Length)
             {// 시작, 혹은 끝 index가 매출 데이터 수보다 이상일 때
                 return -1;
             }
             if (end > revenuePerDay.Length)
             {
+                return -1;
+            }
+
+            if (revenuePerDay.Length == 0)
+            {// 매출 데이터(요소) 수가 0일 때
                 return -1;
             }
 
