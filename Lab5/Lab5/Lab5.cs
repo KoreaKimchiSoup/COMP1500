@@ -50,13 +50,13 @@ namespace Lab5
 
 
         public static int GetInvalidEntryCount(uint[] usersPerDay, double[] revenuePerDay)
-        {
-            int invalidEntryCount = 0;
+        {            
             if (usersPerDay.Length != revenuePerDay.Length)
             {
                 return -1;
             }
 
+            int invalidEntryCount = 0;
             for (int i = 0; i < usersPerDay.Length; i++)
             {
                 if (usersPerDay[i] != revenuePerDay[i])
@@ -72,12 +72,8 @@ namespace Lab5
         {
             double dNum = 0;
 
-            if (start > revenuePerDay.Length)
+            if (start > revenuePerDay.Length || end > revenuePerDay.Length)
             {// 시작, 혹은 끝 index가 매출 데이터 수보다 이상일 때
-                return -1;
-            }
-            if (end > revenuePerDay.Length)
-            {
                 return -1;
             }
 
