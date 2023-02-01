@@ -7,14 +7,17 @@ namespace Lab5
     {
         static void Main(string[] args)
         {
-            double[] revenuePerDay = new double[7] { 1.50, 5.00, 184.20, 341.00, 104591.00, 246001.00, 246873.00 };
+            uint[] usersPerDay = new uint[7] { 3, 10, 66, 101, 657, 1032, 4520 };
+            double[] revenuePerDay = new double[7] { 1.50, 5.00, 184.20, 341.25, 104591.25, 246001.00, 246873.00 };
 
-            double totalRevenue = Lab5.CalculateTotalRevenue(revenuePerDay, 0, 4); // 105122.7
-            Console.WriteLine(totalRevenue);
-            totalRevenue = Lab5.CalculateTotalRevenue(revenuePerDay, 5, 5); // 246001
-            Console.WriteLine(totalRevenue);
-            totalRevenue = Lab5.CalculateTotalRevenue(revenuePerDay, 4, 6); // 597465
-            Console.WriteLine(totalRevenue);
+            int numInvalidEntries = Lab5.GetInvalidEntryCount(usersPerDay, revenuePerDay); // 0
+            Console.WriteLine(numInvalidEntries);
+
+            usersPerDay = new uint[7] { 3, 10, 66, 101, 657, 1032, 4520 };
+            revenuePerDay = new double[7] { 1.50, 5.00, 200.00, 341.25, 435.44, 246001.00, 22.22 };
+
+            numInvalidEntries = Lab5.GetInvalidEntryCount(usersPerDay, revenuePerDay); // 3
+            Console.WriteLine(numInvalidEntries);
         }
     }
 }
