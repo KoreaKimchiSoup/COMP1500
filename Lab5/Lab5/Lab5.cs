@@ -9,8 +9,20 @@
 
         public static int GetInvalidEntryCount(uint[] usersPerDay, double[] revenuePerDay)
         {
-            
-            return -1;
+            int InvalidEntryCount = 0;
+            if (usersPerDay.Length != revenuePerDay.Length)
+            {
+                return -1;
+            }
+
+            for (int i = 0; i < usersPerDay.Length; i++)
+            {
+                if (usersPerDay[i] != revenuePerDay[i])
+                {
+                    InvalidEntryCount++;
+                }
+            }
+            return InvalidEntryCount;
         }
 
         public static double CalculateTotalRevenue(double[] revenuePerDay, uint start, uint end)
@@ -22,8 +34,18 @@
                 return -1;
             }
 
-            if (start > revenuePerDay.Length || end > revenuePerDay.Length)
+            if (start > revenuePerDay.Length)
             {// 시작, 혹은 끝 index가 매출 데이터 수보다 이상일 때
+                return -1;
+            }
+
+            if (end > revenuePerDay.Length)
+            {
+                return -1;
+            }
+
+            if (start > end)
+            {
                 return -1;
             }
 
