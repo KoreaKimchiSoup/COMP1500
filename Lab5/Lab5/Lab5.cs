@@ -1,10 +1,51 @@
-﻿namespace Lab5
+﻿using System;
+
+namespace Lab5
 {
     public static class Lab5
     {
         public static bool TryFixData(uint[] usersPerDay, double[] revenuePerDay)
-        {//                                  일일 사용자           일일 매출            
-            return false;
+        {//                                  일일 사용자           일일 매출
+            bool isFixed = false;
+            if (usersPerDay.Length != revenuePerDay.Length)
+            {
+                return false;
+            }
+
+            for (int i = 0; i < revenuePerDay.Length; i++)
+            {
+                if (double.IsNaN(revenuePerDay[i]))
+                {
+                    revenuePerDay[i] = usersPerDay[i];
+                    isFixed = true;
+                }
+            }
+
+            for (int i = 0; i < revenuePerDay.Length; i++)
+            {
+                if (usersPerDay[i] >= 0 && usersPerDay[i] <= 10)
+                {
+                    revenuePerDay[i] = usersPerDay[i] / 2.0;
+                    revenuePerDay[i] = Math.Round(revenuePerDay[i], 2);
+                }
+                else if (usersPerDay[i] > 10 && usersPerDay[i] <= 100)
+                {
+                    revenuePerDay[i] = 16 * usersPerDay[i] / 5.0 - 27;
+                    revenuePerDay[i] = Math.Round(revenuePerDay[i], 2);
+                }
+                else if (usersPerDay[i] > 100 && usersPerDay[i] <= 1000)
+                {
+                    revenuePerDay[i] = usersPerDay[i] ^ 2 / 4 - 2 * usersPerDay[i] - 2007;
+                    revenuePerDay[i] = Math.Round(revenuePerDay[i], 2);
+                }
+                else if (usersPerDay[i] > 1000)
+                {
+                    revenuePerDay[i] = 245743 + usersPerDay[i] / 4.0;
+                    revenuePerDay[i] = Math.Round(revenuePerDay[i], 2);
+                }
+            }
+                        
+            return isFixed;
         }
 
 
