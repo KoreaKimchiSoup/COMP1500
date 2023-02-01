@@ -14,23 +14,22 @@
 
         public static double CalculateTotalRevenue(double[] revenuePerDay, uint start, uint end)
         {
-            if (revenuePerDay.Length < start)
+            if (revenuePerDay.Length < start || revenuePerDay.Length < end)
             {// 시작, 혹은 끝 index가 매출 데이터 수보다 이상일 때
                 return -1;
             }
-            else if (revenuePerDay.Length < end)
-            {
-                return -1;
-            }
-            else if (end < start)
+            else if (start > end)
             {// 시작 색인이 끝 색인보다 클 때
                 return -1;
             }
-            else if (revenuePerDay.Length <= 0)
-            {// 매출 데이터(요소) 수가 0일 때
+            else if (start < end)
+            {
                 return -1;
             }
-            
+            else if (revenuePerDay.Length == 0)
+            {// 매출 데이터(요소) 수가 0일 때
+                return -1;
+            }            
 
             double dNum = 0;
             for (uint i = start; i <= end; i++)
