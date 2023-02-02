@@ -56,7 +56,37 @@ namespace Lab5
                 return -1;
             }
 
-            return invalidCount;
+            for (int i = 0; i < usersPerDay.Length; i++)
+            {
+                uint u = usersPerDay[i];
+                double r = 0;
+                if (u <= 10)
+                {
+                    r = u / 2.0;
+                }
+
+                if (u <= 100)
+                {
+                    r = 16 * u / 5.0 - 27;
+                }
+
+                if (u <= 1000)
+                {
+                    r = u ^ 2 / 4 - 2 * u - 2007;
+                }
+
+                if (u > 1000)
+                {
+                    r = 245743 + u / 4.0;
+                }
+
+                if (revenuePerDay[i] != r)
+                {
+                    invalidCount++;
+                }
+            }
+
+                return invalidCount;
         }
 
         public static double CalculateTotalRevenue(double[] revenuePerDay, uint start, uint end)
