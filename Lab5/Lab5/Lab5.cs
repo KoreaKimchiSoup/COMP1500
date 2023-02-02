@@ -38,6 +38,11 @@ namespace Lab5
                     revenuePerDay[i] = r;
                 }
 
+                if (revenuePerDay[i] == r)
+                {
+                    bFixed = false;
+                }
+
                 if (revenuePerDay.Length != usersPerDay.Length)
                 {
                     bFixed = false;
@@ -51,41 +56,42 @@ namespace Lab5
         public static int GetInvalidEntryCount(uint[] usersPerDay, double[] revenuePerDay)
         {
             int invalidCount = 0;
-
-            if (usersPerDay.Length != revenuePerDay.Length)
-            {
-                return -1;
-            }
-
             for (int i = 0; i < usersPerDay.Length; i++)
             {
                 uint u = usersPerDay[i];
-                double r = 0;
+                double r = 0.0;
                 if (u <= 10)
                 {
-                    r = u / 2;
+                    r = u / 2.0;
+                    Console.WriteLine(r);
                 }
-
-                if (u <= 100)
+                else if (u <= 100)
                 {
-                    r = 16 * u / 5.0 - 27;
+                    r = ((16 * u) / 5.0) - 27;
+                    Console.WriteLine(r);
                 }
-
-                if (u <= 1000)
+                else if (u <= 1000)
                 {
-                    r = (u ^ 2) / 4 - 2.0 * u - 2007;
+                    r = Math.Pow(u, 2) / 4.0 - (2 * u) - 2007;
+                    Console.WriteLine(r);
                 }
-
-                if (u > 1000)
+                else if (u > 1000)
                 {
-                    r = 245743 + (u / 4.0);
+                    r = 245743 + u / 4.0;
+                    Console.WriteLine(r);
                 }
 
                 if (revenuePerDay[i] != r)
                 {
                     invalidCount++;
                 }
+
+                if (revenuePerDay.Length != usersPerDay.Length)
+                {
+                    return -1;
+                }
             }
+
 
             return invalidCount;
         }
