@@ -6,18 +6,34 @@ namespace Lab5
     {
         public static bool TryFixData(uint[] usersPerDay, double[] revenuePerDay)
         {
-            double[] revenuePerDayCopy = new double[revenuePerDay.Length];
-            for (int i = 0; i < revenuePerDay.Length; i++)
+            bool fixedData = false;
+            for (int i = 0; i < usersPerDay.Length; i++)
             {
-                revenuePerDayCopy[i] = revenuePerDay[i];
+                if (double.IsNaN(revenuePerDay[i]) || double.IsInfinity(revenuePerDay[i]))
+                {
+                    fixedData = true;
+                    uint u = usersPerDay[i];
+                    double r;
+                    if(u <= 10)
+                    {
+                        r = u / 2;
+                    }
+                    else if (u <= 100)
+                    {
+                        r = 16 * u / 5 - 27;
+                    }
+                    else if (u <= 1000)
+                    {
+                        r = u ^ 2 / 4 - 2 * u - 2007;
+                    }
+                    else
+                    {
+                        r = 245743 + u / 4;
+                    }
+                    revenuePerDay[i] = Math.Round(r, 2);
+                }
             }
-
-            for (int i = 0; i < revenuePerDay.Length; i++)
-            {
-                Console.WriteLine(revenuePerDayCopy[i]);
-            }
-            
-            return false;
+            return fixedData;
         }
 
 
