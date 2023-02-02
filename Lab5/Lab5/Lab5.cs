@@ -9,27 +9,27 @@ namespace Lab5
             bool bFixedData = false;
             for (int i = 0; i < usersPerDay.Length; i++)
             {
-                if (double.IsNaN(revenuePerDay[i]) || double.IsInfinity(revenuePerDay[i]))
+                uint u = usersPerDay[i];
+                double r;
+                if (u <= 10)
+                {
+                    r = u / 2;
+                }
+                else if (u <= 100)
+                {
+                    r = 16 * u / 5 - 27;
+                }
+                else if (u <= 1000)
+                {
+                    r = u ^ 2 / 4 - 2 * u - 2007;
+                }
+                else
+                {
+                    r = 245743 + u / 4;
+                }
+                if (revenuePerDay[i] != r)
                 {
                     bFixedData = true;
-                    uint u = usersPerDay[i];
-                    double r;
-                    if (u <= 10)
-                    {
-                        r = u / 2;
-                    }
-                    else if (u <= 100)
-                    {
-                        r = 16 * u / 5 - 27;
-                    }
-                    else if (u <= 1000)
-                    {
-                        r = u ^ 2 / 4 - 2 * u - 2007;
-                    }
-                    else
-                    {
-                        r = 245743 + u / 4;
-                    }
                     revenuePerDay[i] = Math.Round(r, 2);
                 }
             }
