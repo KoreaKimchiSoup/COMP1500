@@ -14,7 +14,7 @@ namespace Lab5
             Console.WriteLine(numInvalidEntries);
 
             usersPerDay = new uint[7] { 3, 10, 66, 101, 657, 1032, 4520 };
-            revenuePerDay = new double[7] { 1.50, 5.00, 200.00, 341.25, 435.44, 246001.00, 22.22 };
+            revenuePerDay = new double[8] { 1.50, 5.00, 200.00, 341.25, 435.44, 246001.00, 22.22, 1.0 };
 
             numInvalidEntries = Lab5.GetInvalidEntryCount(usersPerDay, revenuePerDay); // 3
             Console.WriteLine(numInvalidEntries);

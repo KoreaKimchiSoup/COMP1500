@@ -33,9 +33,14 @@ namespace Lab5
                     bFixed = true;
                     revenuePerDay[i] = r;
                 }
+                else
+                {
+                    return false;
+                }
+
                 if (revenuePerDay.Length != usersPerDay.Length)
                 {
-                    bFixed = false;
+                   return false;
                 }
             }
 
@@ -50,7 +55,7 @@ namespace Lab5
                 return -1;
             }
 
-            if (revenuePerDay.Length == 0)
+            if (revenuePerDay.Length == 0 || usersPerDay.Length == 0)
             {
                 return -1;
             }
