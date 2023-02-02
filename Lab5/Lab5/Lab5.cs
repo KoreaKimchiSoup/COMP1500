@@ -10,7 +10,7 @@ namespace Lab5
             for (int i = 0; i < usersPerDay.Length; i++)
             {
                 uint u = usersPerDay[i];
-                double r = 0.0;
+                double r = 0;
                 if (u <= 10)
                 {
                     r = u / 2.0;
@@ -52,7 +52,7 @@ namespace Lab5
         {
             int invalidEntrys = 0;
             for (int i = 0; i < usersPerDay.Length; i++)
-            {//
+            {
                 uint u = usersPerDay[i];
                 double r = 0;
                 if (u <= 10)
@@ -62,7 +62,6 @@ namespace Lab5
                 else if (u <= 100)
                 {
                     r = ((16 * u) / 5.0) - 27;
-                    Console.WriteLine(r);
                 }
                 else if (u <= 1000)
                 {
@@ -72,8 +71,7 @@ namespace Lab5
                 {
                     r = 245743 + u / 4.0;
                 }
-                
-                if (revenuePerDay[i] != r)
+                else if (revenuePerDay[i] != r)
                 {
                     invalidEntrys++;
                 }
