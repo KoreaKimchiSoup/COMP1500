@@ -52,7 +52,7 @@ namespace Lab5
         {
             int invalidEntrys = 0;
             for (int i = 0; i < usersPerDay.Length; i++)
-            {
+            {//
                 uint u = usersPerDay[i];
                 double r = 0;
                 if (u <= 10)
