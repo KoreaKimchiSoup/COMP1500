@@ -7,69 +7,8 @@ namespace Lab5
         public static bool TryFixData(uint[] usersPerDay, double[] revenuePerDay)
         {
             bool bFixed = false;
-            double r = 0;
-            uint u = 0;
 
             for (int i = 0; i < usersPerDay.Length; i++)
-            {
-                u = usersPerDay[i];
-            }
-
-            if (revenuePerDay.Length != usersPerDay.Length)
-            {
-                return false;
-            }
-
-            for (int i = 0; i < usersPerDay.Length; i++)
-            {
-                    if (u <= 10)
-                    {
-                        r = u / 2.0;
-                    }
-                    else if (u <= 100)
-                    {
-                        r = ((16 * u) / 5.0) - 27;
-                    }
-                    else if (u <= 1000)
-                    {
-                        r = Math.Pow(u, 2) / 4.0 - (2 * u) - 2007;
-                    }
-                    else if (u > 1000)
-                    {
-                        r = 245743 + u / 4.0;
-                    }
-                
-
-                if (revenuePerDay[i] != r)
-                {
-                    bFixed = true;
-                    revenuePerDay[i] = r;
-                }
-
-                if (r == usersPerDay[i])
-                {
-                    bFixed = false;
-                }
-            }
-
-            return bFixed;
-        }
-
-
-        public static int GetInvalidEntryCount(uint[] usersPerDay, double[] revenuePerDay)
-        {            
-            if (revenuePerDay.Length != usersPerDay.Length)
-            {
-                return -1;
-            }
-
-            if (revenuePerDay.Length == 0 || usersPerDay.Length == 0)
-            {
-                return -1;
-            }
-
-            int invalidEntrys = 0;
-            for (int i = 0; i < revenuePerDay.Length; i++)
             {
                 uint u = usersPerDay[i];
                 double r = 0;
@@ -91,6 +30,45 @@ namespace Lab5
                 }
 
                 if (revenuePerDay[i] != r)
+                {
+                    bFixed = true;
+                    revenuePerDay[i] = r;
+                }
+
+                if (revenuePerDay.Length != usersPerDay.Length)
+                {
+                    bFixed = false;
+                }
+            }
+
+            return bFixed;
+        }
+
+
+        public static int GetInvalidEntryCount(uint[] usersPerDay, double[] revenuePerDay)
+        {
+            int invalidEntrys = 0;
+            for (int i = 0; i < revenuePerDay.Length; i++)
+            {
+                uint u = usersPerDay[i];
+                double r = 0;
+                if (u <= 10)
+                {
+                    r = u / 2.0;
+                }
+                else if (u <= 100)
+                {
+                    r = ((16 * u) / 5.0) - 27;
+                }
+                else if (u <= 1000)
+                {
+                    r = Math.Pow(u, 2) / 4.0 - (2 * u) - 2007;
+                }
+                else if (u > 1000)
+                {
+                    r = 245743 + u / 4.0;
+                }
+                else if (revenuePerDay[i] != r)
                 {
                     invalidEntrys++;
                 }
