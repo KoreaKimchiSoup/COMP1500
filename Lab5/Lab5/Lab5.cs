@@ -6,15 +6,15 @@ namespace Lab5
     {
         public static bool TryFixData(uint[] usersPerDay, double[] revenuePerDay)
         {
-            bool fixedData = false;
+            bool bFixedData = false;
             for (int i = 0; i < usersPerDay.Length; i++)
             {
                 if (double.IsNaN(revenuePerDay[i]) || double.IsInfinity(revenuePerDay[i]))
                 {
-                    fixedData = true;
+                    bFixedData = true;
                     uint u = usersPerDay[i];
                     double r;
-                    if(u <= 10)
+                    if (u <= 10)
                     {
                         r = u / 2;
                     }
@@ -33,39 +33,34 @@ namespace Lab5
                     revenuePerDay[i] = Math.Round(r, 2);
                 }
             }
-            return fixedData;
+            return bFixedData;
         }
 
 
         public static int GetInvalidEntryCount(uint[] usersPerDay, double[] revenuePerDay)
         {
-            if (revenuePerDay.Length != usersPerDay.Length)
+            int invalidCount = 0;
+            if (usersPerDay.Length != revenuePerDay.Length)
             {
                 return -1;
             }
-
-            int invalidEntryCount = 0;
+            
             for (int i = 0; i < usersPerDay.Length; i++)
             {
-                if (usersPerDay[i] != revenuePerDay[i])
+                if (usersPerDay[i] == 0 && revenuePerDay[i] != 0)
                 {
-                    invalidEntryCount++;
+                    invalidCount++;
                 }
             }
 
-            return invalidEntryCount;
+            return invalidCount;
         }
 
         public static double CalculateTotalRevenue(double[] revenuePerDay, uint start, uint end)
         {
             double dNum = 0;
 
-            if (start > revenuePerDay.Length)
-            {// 시작, 혹은 끝 index가 매출 데이터 수보다 이상일 때
-                return -1;
-            }
-
-            if (end > revenuePerDay.Length)
+            if (start < 0 || end >= revenuePerDay.Length || start > end)
             {// 시작, 혹은 끝 index가 매출 데이터 수보다 이상일 때
                 return -1;
             }
