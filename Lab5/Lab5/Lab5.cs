@@ -68,10 +68,15 @@ namespace Lab5
                     r = 245743 + u / 4.0;
                 }
 
-                else if (revenuePerDay[i] != r)
+                if (revenuePerDay[i] != r)
                 {
                     invalidEntrys++;
                 }
+            }
+
+            if (revenuePerDay.Length != usersPerDay.Length)
+            {
+                return -1;
             }
 
             return invalidEntrys;
