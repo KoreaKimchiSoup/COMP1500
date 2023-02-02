@@ -46,6 +46,16 @@ namespace Lab5
                 return -1;
             }
 
+            if (usersPerDay.Length == 0)
+            {
+                return -1;
+            }
+
+            if (revenuePerDay.Length == 0)
+            {
+                return -1;
+            }
+
             return invalidCount;
         }
 
