@@ -33,10 +33,6 @@ namespace Lab5
                     bFixed = true;
                     revenuePerDay[i] = r;
                 }
-                else
-                {
-                    bFixed = false;
-                }
 
                 if (revenuePerDay.Length != usersPerDay.Length)
                 {
@@ -72,7 +68,7 @@ namespace Lab5
                     r = 245743 + u / 4.0;
                 }
 
-                if (revenuePerDay[i] != r)
+                else if (revenuePerDay[i] != r)
                 {
                     invalidEntrys++;
                 }
