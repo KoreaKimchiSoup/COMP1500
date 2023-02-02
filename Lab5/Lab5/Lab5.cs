@@ -14,22 +14,18 @@ namespace Lab5
                 if (u <= 10)
                 {
                     r = u / 2.0;
-                    Console.WriteLine(r);
                 }
                 else if (u <= 100)
                 {
                     r = ((16 * u) / 5.0) - 27;
-                    Console.WriteLine(r);
                 }
                 else if (u <= 1000)
                 {
                     r = Math.Pow(u, 2) / 4.0 - (2 * u) - 2007;
-                    Console.WriteLine(r);
                 }
                 else if (u > 1000)
                 {
                     r = 245743 + u / 4.0;
-                    Console.WriteLine(r);
                 }
 
                 if (revenuePerDay[i] != r)
@@ -37,12 +33,6 @@ namespace Lab5
                     bFixed = true;
                     revenuePerDay[i] = r;
                 }
-
-                if (revenuePerDay[i] == r)
-                {
-                    bFixed = false;
-                }
-
                 if (revenuePerDay.Length != usersPerDay.Length)
                 {
                     bFixed = false;
@@ -54,7 +44,17 @@ namespace Lab5
 
 
         public static int GetInvalidEntryCount(uint[] usersPerDay, double[] revenuePerDay)
-        {
+        {            
+            if (revenuePerDay.Length != usersPerDay.Length)
+            {
+                return -1;
+            }
+
+            if (revenuePerDay.Length == 0)
+            {
+                return -1;
+            }
+
             int invalidCount = 0;
             for (int i = 0; i < usersPerDay.Length; i++)
             {
@@ -85,13 +85,7 @@ namespace Lab5
                 {
                     invalidCount++;
                 }
-
-                if (revenuePerDay.Length != usersPerDay.Length)
-                {
-                    return -1;
-                }
             }
-
 
             return invalidCount;
         }
