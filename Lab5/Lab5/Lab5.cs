@@ -72,11 +72,11 @@ namespace Lab5
                 {
                     invalidEntrys++;
                 }
-            }
 
-            if (revenuePerDay.Length != usersPerDay.Length)
-            {
-                return -1;
+                if (revenuePerDay.Length != usersPerDay.Length)
+                {
+                    return -1;
+                }
             }
 
             return invalidEntrys;
