@@ -6,7 +6,7 @@ namespace Lab5
     {
         public static bool TryFixData(uint[] usersPerDay, double[] revenuePerDay)
         {
-            bool bFixedData = false;
+            bool bFixed = false;
             for (int i = 0; i < usersPerDay.Length; i++)
             {
                 uint u = usersPerDay[i];
@@ -15,25 +15,24 @@ namespace Lab5
                 {
                     r = u / 2;
                 }
-                else if (u <= 100)
+
+                if (u <= 100)
                 {
                     r = 16 * u / 5 - 27;
                 }
-                else if (u <= 1000)
+
+                if (u <= 1000)
                 {
                     r = u ^ 2 / 4 - 2 * u - 2007;
                 }
-                else
+
+                if (u > 1000)
                 {
                     r = 245743 + u / 4;
                 }
-                if (revenuePerDay[i] != r)
-                {
-                    bFixedData = true;
-                    revenuePerDay[i] = Math.Round(r, 2);
-                }
             }
-            return bFixedData;
+
+            return bFixed;
         }
 
 
@@ -42,16 +41,6 @@ namespace Lab5
             int invalidCount = 0;
 
             if (usersPerDay.Length != revenuePerDay.Length)
-            {
-                return -1;
-            }
-
-            if (usersPerDay.Length == 0)
-            {
-                return -1;
-            }
-
-            if (revenuePerDay.Length == 0)
             {
                 return -1;
             }
