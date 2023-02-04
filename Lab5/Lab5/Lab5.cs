@@ -6,6 +6,11 @@ namespace Lab5
     {
         public static bool TryFixData(uint[] usersPerDay, double[] revenuePerDay)
         {
+            if (revenuePerDay.Length != usersPerDay.Length)
+            {
+                return false;
+            }
+
             bool bFixed = false;
 
             for (int i = 0; i < usersPerDay.Length; i++)
