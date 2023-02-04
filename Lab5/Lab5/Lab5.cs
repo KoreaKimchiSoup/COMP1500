@@ -30,11 +30,6 @@ namespace Lab5
                 }
 
                 r = Math.Round(r, 2);
-
-                if (revenuePerDay[i] == r)
-                {
-                    bFixed = false;
-                }
                 
                 if (revenuePerDay[i] != r)
                 {
@@ -43,17 +38,17 @@ namespace Lab5
                 }
             }
 
-            if (revenuePerDay.Length != usersPerDay.Length)
-            {
-                bFixed = false;
-            }
-
             return bFixed;
         }
 
 
         public static int GetInvalidEntryCount(uint[] usersPerDay, double[] revenuePerDay)
         {
+            if (revenuePerDay.Length != usersPerDay.Length)
+            {
+                return -1;
+            }
+
             int invalidEntrys = 0;
             for (int i = 0; i < revenuePerDay.Length; i++)
             {
@@ -83,11 +78,6 @@ namespace Lab5
                 {
                     invalidEntrys++;
                 }
-            }
-
-            if (revenuePerDay.Length != usersPerDay.Length)
-            {
-                return -1;
             }
 
             return invalidEntrys;
