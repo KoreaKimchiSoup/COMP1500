@@ -68,12 +68,11 @@ namespace Lab5
                 {
                     r = 245743 + u / 4.0;
                 }
-                else if (revenuePerDay[i] != r)
+                if (revenuePerDay[i] != r)
                 {
                     invalidEntrys++;
                 }
             }
-
             return invalidEntrys;
         }
 
