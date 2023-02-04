@@ -31,16 +31,21 @@ namespace Lab5
 
                 r = Math.Round(r, 2);
 
-                if (revenuePerDay.Length != usersPerDay.Length || revenuePerDay[i] == r)
+                if (revenuePerDay[i] == r)
                 {
                     bFixed = false;
                 }
-                else if (revenuePerDay[i] != r)
+                
+                if (revenuePerDay[i] != r)
                 {
                     bFixed = true;
                     revenuePerDay[i] = r;
                 }
+            }
 
+            if (revenuePerDay.Length != usersPerDay.Length)
+            {
+                bFixed = false;
             }
 
             return bFixed;
@@ -78,6 +83,11 @@ namespace Lab5
                 {
                     invalidEntrys++;
                 }
+            }
+
+            if (revenuePerDay.Length != usersPerDay.Length)
+            {
+                return -1;
             }
 
             return invalidEntrys;
