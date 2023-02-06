@@ -21,7 +21,7 @@
                 for (int j = 0; j < row; j++)
                 {
                     arrayCopy[i, j] = array[i - i, i];
-                    //            6  5             5  6            
+                    //            6  5             5  6            []
                 }
             }
 
