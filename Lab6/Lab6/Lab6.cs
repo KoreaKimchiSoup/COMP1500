@@ -11,35 +11,39 @@
 
             int column = array.GetLength(1); // colunm에 행(6)값 가져옴
             int row = array.GetLength(0); // row에 열(5)값 가져옴
-            System.Console.WriteLine(column); // 6
-            System.Console.WriteLine(row);      // 5
+            // System.Console.WriteLine(column); // 6
+            // System.Console.WriteLine(row);      // 5
 
-            int[,] arrayCopy = new int[row, column];
+            int[,] arrayCopy = new int[column, row];
 
             for (int i = 0; i < column; i++) 
             {
                 for (int j = 0; j < row; j++)
                 {
-                    arrayCopy[i, j] = array[i - i, i];
-                    //            6  5             5  6            []
+                    arrayCopy[i, j] = array[row - 1 - j, i];
+                    System.Console.Write("{0, -10}", arrayCopy[i, j]);
                 }
+                System.Console.WriteLine();
+            }
+            /*
+            -----------------------------------------------------------------------------------------------Rotate90Degrees
+            int column = array.GetLength(1); // colunm에 행(6)값 가져옴
+            int row = array.GetLength(0); // row에 열(5)값 가져옴
+            // System.Console.WriteLine(column); // 6
+            // System.Console.WriteLine(row);      // 5
+
+            int[,] arrayCopy = new int[column, row];
+
+            for (int i = 0; i < column; i++) 
+            {
+                for (int j = 0; j < row; j++)
+                {
+                    arrayCopy[i, j] = array[row - 1 - j, i];
+                    System.Console.Write("{0, -10}", arrayCopy[i, j]);
+                }
+                System.Console.WriteLine();
             }
 
-            System.Console.WriteLine();
-            /*
-                {  1,  2,  3,  4,  5,  6 },
-                { 11, 12, 13, 14, 15, 16 },
-                { 21, 22, 23, 24, 25, 26 },
-                { 31, 32, 33, 34, 35, 36 },
-                { 41, 42, 43, 44, 45, 46 }
-             * 
-            /*
-                41   31   21   11   1
-                42   32   22   12   2
-                43   33   23   13   3
-                44   34   24   14   4
-                45   35   25   15   5
-                46   36   26   16   6
             -----------------------------------------------------------------------------------------------EMode.VerticalMirror 
             int column = array.GetLength(1); // colunm에 행(6)값 가져옴
             int row = array.GetLength(0); // row에 열(5)값 가져옴
@@ -63,7 +67,7 @@
             {
                 for (int j = 0; j < array.GetLength(1); j++)
                 {
-                    System.Console.Write("{0, -10}", arrayCopy[i, j]);
+                   // System.Console.Write("{0, -10}", arrayCopy[i, j]);
                 }
                 System.Console.WriteLine();
             }
