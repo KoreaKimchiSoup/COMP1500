@@ -14,17 +14,64 @@
             // System.Console.WriteLine(column); // 6
             // System.Console.WriteLine(row);      // 5
 
-            int[,] arrayCopy = new int[column, row];
+            int[,] arrayCopy = new int[row, column ];
 
-            for (int i = 0; i < column; i++) 
+            for (int i = 0; i < row; i++)
             {
-                for (int j = 0; j < row; j++)
+                arrayCopy[i,  0] = array[row - 1, column - 1];
+                System.Console.Write("{0, -10}", arrayCopy[i, 0]);
+                for (int j = 0; j < column - 1; j++)
                 {
-                    arrayCopy[i, j] = array[row - 1 - j, i];
+                    arrayCopy[i, j] = array[row - 1, j];
                     System.Console.Write("{0, -10}", arrayCopy[i, j]);
                 }
                 System.Console.WriteLine();
             }
+            System.Console.WriteLine();
+
+            for (int i = 0; i < row; i++)
+            {
+                if ()
+            }
+            /*
+                            1     2     3    4     5     6
+                            11   12   13   14   15   16
+                            21   22   23   24   25   26
+                            31   32   33   34   35   36
+                            41   42   43   44   45   46                            
+
+                            46   41   42   43   44   45
+                            6     1     2     3    4     5
+                            16   11   12   13   14   15
+                            26   21   22   23   24   25
+                            36   31   32   33   34   35
+            
+
+
+
+
+
+
+
+            /*
+            ---------------------------------------------------------------EMode.HorizontalMirror
+            int[,] arrayCopy = new int[row, column];
+
+            for (int i = 0; i < row; i++)
+            {
+                for (int j = 0; j < column; j++)
+                {
+                    arrayCopy[i, j] = array[i, column - 1 - j];
+                    System.Console.Write("{0, -10}", arrayCopy[i, j]);
+                }
+                System.Console.WriteLine();
+            }
+
+            6     5     4     3    2     1
+            16   15   14   13   12   11
+            26   25   24   23   22   21
+            36   35   34   33   32   31
+            46   45   44   43   42   41            
             /*
             -----------------------------------------------------------------------------------------------Rotate90Degrees
             int column = array.GetLength(1); // colunm에 행(6)값 가져옴
