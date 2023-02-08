@@ -6,11 +6,6 @@ namespace Lab5
     {
         public static bool TryFixData(uint[] usersPerDay, double[] revenuePerDay)
         {
-            if (revenuePerDay.Length != usersPerDay.Length)
-            {
-                return false;
-            }
-
             bool bFixed = false;
 
             for (int i = 0; i < usersPerDay.Length; i++)
@@ -23,7 +18,7 @@ namespace Lab5
                 }
                 else if (u <= 100)
                 {
-                    r = (16 * u) / 5.0 - 27;
+                    r = ((16 * u) / 5.0) - 27;
                 }
                 else if (u <= 1000)
                 {
@@ -34,12 +29,15 @@ namespace Lab5
                     r = 245743 + u / 4.0;
                 }
 
-                r = Math.Round(r, 2);
-                
                 if (revenuePerDay[i] != r)
                 {
                     bFixed = true;
                     revenuePerDay[i] = r;
+                }
+
+                if (revenuePerDay.Length != usersPerDay.Length)
+                {
+                    bFixed = false;
                 }
             }
 
@@ -49,24 +47,18 @@ namespace Lab5
 
         public static int GetInvalidEntryCount(uint[] usersPerDay, double[] revenuePerDay)
         {
-            if (revenuePerDay.Length != usersPerDay.Length)
-            {
-                return -1;
-            }
-
             int invalidEntrys = 0;
             for (int i = 0; i < revenuePerDay.Length; i++)
             {
                 uint u = usersPerDay[i];
                 double r = 0;
-
                 if (u <= 10)
                 {
                     r = u / 2.0;
                 }
                 else if (u <= 100)
                 {
-                    r = (16 * u) / 5.0 - 27;
+                    r = ((16 * u) / 5.0) - 27;
                 }
                 else if (u <= 1000)
                 {
@@ -76,10 +68,7 @@ namespace Lab5
                 {
                     r = 245743 + u / 4.0;
                 }
-
-                r = Math.Round(r, 2);
-
-                if (revenuePerDay[i] != r)
+                else if (revenuePerDay[i] != r)
                 {
                     invalidEntrys++;
                 }
