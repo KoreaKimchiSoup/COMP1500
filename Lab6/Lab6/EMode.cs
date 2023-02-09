@@ -1,12 +1,9 @@
 ﻿namespace Lab6
 {
-    public class EMode
+    public enum EModeA
     {
-        public enum EMOde
-        {
-            HorizontalMirror,
-            VerticalMirror,
-            DiagonalShift
-        }
+        HorizontalMirror,
+        VerticalMirror,
+        DiagonalShift
     }
 }

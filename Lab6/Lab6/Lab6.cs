@@ -20,12 +20,12 @@
             return arrayCopy;
         }
 
-        public static void TransformArrayHorizontalMirror(int[,] array, EMode.EMOde eMOde)
+        public static void TransformArray(int[,] array, EMode.EModeA eModeA)
         {
             int column = array.GetLength(1);
             int row = array.GetLength(0);
 
-            if (eMOde == EMode.EMOde.HorizontalMirror)
+            if (eModeA == EMode.EModeA.HorizontalMirror)
             {
                 int[,] arrayCopy = new int[row, column];
 
@@ -38,8 +38,8 @@
                 }
             }
         }
-
-        public static void TransformArrayVerticalMirror(int[,] array, EMode.EMOde eMOde)
+        /*
+        public static void TransformArray(int[,] array, EMode.EMOde eMOde)
         {
             int column = array.GetLength(1);
             int row = array.GetLength(0);
@@ -93,7 +93,7 @@
                         16   11   12   13   14   15
                         26   21   22   23   24   25
                         36   31   32   33   34   35
-            */
         }
+            */
     }
 }
