@@ -6,6 +6,7 @@ namespace Lab6
     {
         static void Main(string[] args)
         {
+            EMode.EMOde eMode = new EMode.EMOde();
             int[,] data = new int[5, 6]
             {
                 {  1,  2,  3,  4,  5,  6 },
@@ -14,16 +15,13 @@ namespace Lab6
                 { 31, 32, 33, 34, 35, 36 },
                 { 41, 42, 43, 44, 45, 46 }
             };
-
             int[,] rotated = Lab6.Rotate90Degrees(data);
-            /*
-            41   31   21   11   1
-            42   32   22   12   2
-            43   33   23   13   3
-            44   34   24   14   4
-            45   35   25   15   5
-            46   36   26   16   6
-            */
+            Console.WriteLine();
+            Lab6.TransformArrayHorizontalMirror(data, EMode.EMOde.HorizontalMirror);
+            Console.WriteLine();
+            Lab6.TransformArrayVerticalMirror(data, EMode.EMOde.VerticalMirror);
+            Console.WriteLine();
+            Lab6.TransformArrayDiagonalShift(data, EMode.EMOde.DiagonalShift);
         }
     }
 }
