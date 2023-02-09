@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data.Common;
 
 namespace Lab6
 {
@@ -16,14 +17,6 @@ namespace Lab6
             };
 
             int[,] rotated = Lab6.Rotate90Degrees(data);
-            /*
-            41   31   21   11   1
-            42   32   22   12   2
-            43   33   23   13   3
-            44   34   24   14   4
-            45   35   25   15   5
-            46   36   26   16   6
-            */
         }
     }
 }
