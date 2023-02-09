@@ -14,9 +14,7 @@
                 for (int j = 0; j < row; j++)
                 {
                     arrayCopy[i, j] = array[row - 1 - j, i];
-                    System.Console.Write("{0, -10}", arrayCopy[i, j]);
                 }
-                System.Console.WriteLine();
             }
 
             return arrayCopy;
@@ -36,9 +34,7 @@
                     for (int j = 0; j < column; j++)
                     {
                         arrayCopy[i, j] = array[i, column - 1 - j];
-                        System.Console.Write("{0, -10}", arrayCopy[i, j]);
                     }
-                    System.Console.WriteLine();
                 }
             }
         }
@@ -57,9 +53,7 @@
                     for (int j = 0; j < column; j++)
                     {
                         arrayCopy[i, j] = array[row - 1 - i, j];
-                        System.Console.Write("{0, -10}", arrayCopy[i, j]);
                     }
-                    System.Console.WriteLine();
                 }
             }
         }
@@ -82,9 +76,7 @@
                         //System.Console.Write($"rowShift: {rowShift}       ");
                         //System.Console.WriteLine($"columnShift: {columnShift}");
                         arrayCopy[rowShift, columnShift] = array[i, j];
-                        System.Console.Write("{0, -10}", arrayCopy[i, j]);
                     }
-                    System.Console.WriteLine();
                 }
 
             }
