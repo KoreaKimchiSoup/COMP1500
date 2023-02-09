@@ -20,12 +20,12 @@
             return arrayCopy;
         }
 
-        public static void TransformArray(int[,] array, EMode.EModeA eModeA)
+        public static void TransformArray(int[,] array, EMode eMode)
         {
             int column = array.GetLength(1);
             int row = array.GetLength(0);
 
-            if (eModeA == EMode.EModeA.HorizontalMirror)
+            if (eMode == EMode.HorizontalMirror)
             {
                 int[,] arrayCopy = new int[row, column];
 

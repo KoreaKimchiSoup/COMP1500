@@ -1,6 +1,6 @@
 ﻿namespace Lab6
 {
-    public enum EModeA
+    public enum EMode
     {
         HorizontalMirror,
         VerticalMirror,
