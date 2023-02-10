@@ -3,7 +3,7 @@
 namespace Lab6
 {
     public static class Lab6
-    {
+    {/*
         public static int[,] Rotate90Degrees(int[,] array)
         {
             int columnCount = array.GetLength(1);
@@ -69,7 +69,7 @@ namespace Lab6
     }
 }
 
-/*
+
             for (int i = 0; i < columnCount; i++)
             {
                 for (int j = 0; j < rowCount; j++)
@@ -78,3 +78,5 @@ namespace Lab6
                 }
             }
             */
+    }
+}
