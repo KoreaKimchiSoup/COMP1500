@@ -42,7 +42,7 @@
                     for (int j = 0; j < array.GetLength(1); j++)
                     {
                         int temp = array[i, j];
-                        array[i, j] = array[array.GetLength(0) - i - 1, j];
+                        array[i, j] = array[array.GetLength(0) - i - 1, j]; // asda asd asd
                         array[array.GetLength(0) - i - 1, j] = temp;
                     }
                 }
