@@ -15,6 +15,7 @@
                 {
                     arrayCopy[i, j] = array[rowCount - 1 - j, i];
                 }
+                System.Console.WriteLine();
             }
 
             return arrayCopy;
@@ -22,7 +23,8 @@
 
         public static void TransformArray(int[,] array, EMode eMode)
         {
-            if (eMode == EMode.HorizontalMirror)
+            EMode mode = EMode.HorizontalMirror;
+            if (mode == EMode.HorizontalMirror)
             {
                 for (int i = 0; i < array.GetLength(0); i++)
                 {
@@ -35,7 +37,7 @@
                 }
             }
 
-            if (eMode == EMode.VerticalMirror)
+            if (mode == EMode.VerticalMirror)
             {
                 for (int i = 0; i < array.GetLength(0) / 2; i++)
                 {
@@ -52,7 +54,7 @@
                 int rowCount = array.GetLength(0);
                 int colCount = array.GetLength(1);
 
-                if (eMode == EMode.DiagonalShift)
+                if (mode == EMode.DiagonalShift)
                 {
                     int temp = array[rowCount - 1, colCount - 1];
                     for (int i = rowCount - 1; i > 0; i--)
