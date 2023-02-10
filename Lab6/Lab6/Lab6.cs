@@ -4,17 +4,16 @@
     {
         public static int[,] Rotate90Degrees(int[,] array)
         {
-            int column = array.GetLength(1);
-            int row = array.GetLength(0);
+            int columnCount = array.GetLength(1);
+            int rowCount = array.GetLength(0);
 
-            int[,] arrayCopy = new int[column, row];
+            int[,] arrayCopy = new int[columnCount, rowCount];
 
-            System.Console.WriteLine("Rotate90Degrees");
-            for (int i = 0; i < column; i++)
+            for (int i = 0; i < columnCount; i++)
             {
-                for (int j = 0; j < row; j++)
+                for (int j = 0; j < rowCount; j++)
                 {
-                    arrayCopy[i, j] = array[row - 1 - j, i];
+                    arrayCopy[i, j] = array[rowCount - 1 - j, i];
                 }
             }
 
@@ -23,108 +22,58 @@
 
         public static void TransformArray(int[,] array, EMode eMode)
         {
-            int row = array.GetLength(0);
-            int column = array.GetLength(1);
-            int[,] arrayCopy = new int[row, column];
+            if (eMode == EMode.HorizontalMirror)
+            {
+                for (int i = 0; i < array.GetLength(0); i++)
+                {
+                    for (int j = 0; j < array.GetLength(1) / 2; j++)
+                    {
+                        int temp = array[i, j];
+                        array[i, j] = array[i, array.GetLength(1) - j - 1];
+                        array[i, array.GetLength(1) - j - 1] = temp;
+                    }
+                }
+            }
 
             if (eMode == EMode.VerticalMirror)
             {
-                System.Console.WriteLine("VerticalMirror");
-                for (int i = 0; i < row; i++)
+                for (int i = 0; i < array.GetLength(0) / 2; i++)
                 {
-                    for (int j = 0; j < column; j++)
+                    for (int j = 0; j < array.GetLength(1); j++)
                     {
-                        arrayCopy[i, j] = array[row - 1 - i, j];
-                        System.Console.Write("{0, -10}", arrayCopy);
-                    }
-                    System.Console.WriteLine();
-                }
-            }
-
-            if (eMode == EMode.HorizontalMirror)
-            {
-                System.Console.WriteLine("HorizontalMirror");
-                for (int i = 0; i < row; i++)
-                {
-                    for (int j = 0; j < column; j++)
-                    {
-                        //arrayCopy[i, j] = array[column - 1 - j, i];
+                        int temp = array[i, j];
+                        array[i, j] = array[array.GetLength(0) - i - 1, j];
+                        array[array.GetLength(0) - i - 1, j] = temp;
                     }
                 }
             }
 
-            if (eMode == EMode.DiagonalShift)
             {
-                System.Console.WriteLine("DiagonalShift");
-                for (int i = 0; i < row; i++)
+                int rowCount = array.GetLength(0);
+                int colCount = array.GetLength(1);
+
+                if (eMode == EMode.DiagonalShift)
                 {
-                    for (int j = 0; j < column; j++)
+                    int temp = array[rowCount - 1, colCount - 1];
+                    for (int i = rowCount - 1; i > 0; i--)
                     {
-                        int rowShift = (i + j + 1) % row;
-                        int columnShift = (j + 1) % column;
-                        //System.Console.Write($"rowShift: {rowShift}       ");
-                        //System.Console.WriteLine($"columnShift: {columnShift}");
-                        arrayCopy[rowShift, columnShift] = array[i, j];
+                        array[i, colCount - 1] = array[i - 1, colCount - 1];
                     }
+                    for (int j = colCount - 1; j > 0; j--)
+                    {
+                        array[0, j] = array[0, j - 1];
+                    }
+                    for (int i = 0; i < rowCount - 1; i++)
+                    {
+                        array[i, 0] = array[i + 1, 0];
+                    }
+                    for (int j = 0; j < colCount - 1; j++)
+                    {
+                        array[rowCount - 1, j] = array[rowCount - 1, j + 1];
+                    }
+                    array[1, colCount - 1] = temp;
                 }
             }
         }
-        /*
-        public static void TransformArray(int[,] array, EMode.EMOde eMOde)
-        {
-            int column = array.GetLength(1);
-            int row = array.GetLength(0);
-
-            int[,] arrayCopy = new int[row, column];
-
-            if (eMOde == EMode.EMOde.VerticalMirror)
-            {
-                for (int i = 0; i < row; i++)
-                {
-                    for (int j = 0; j < column; j++)
-                    {
-                        arrayCopy[i, j] = array[row - 1 - i, j];
-                    }
-                }
-            }
-        }
-
-        public static void TransformArrayDiagonalShift(int[,] array, EMode.EMOde eMOde)
-        {
-            int column = array.GetLength(1);
-            int row = array.GetLength(0);
-
-            int[,] arrayCopy = new int[row, column];
-
-            if (eMOde == EMode.EMOde.DiagonalShift)
-            {
-                for (int i = 0; i < row; i++)
-                {
-                    for (int j = 0; j < column; j++)
-                    {
-                        int rowShift = (i + j + 1) % row;
-                        int columnShift = (j + 1) % column;
-                        //System.Console.Write($"rowShift: {rowShift}       ");
-                        //System.Console.WriteLine($"columnShift: {columnShift}");
-                        arrayCopy[rowShift, columnShift] = array[i, j];
-                    }
-                }
-
-            }
-            
-            /*
-                        1     2     3    4     5     6
-                        11   12   13   14   15   16
-                        21   22   23   24   25   26
-                        31   32   33   34   35   36
-                        41   42   43   44   45   46
-
-                        46   41   42   43   44   45
-                        6     1     2     3    4     5
-                        16   11   12   13   14   15
-                        26   21   22   23   24   25
-                        36   31   32   33   34   35
-        }
-            */
     }
 }
