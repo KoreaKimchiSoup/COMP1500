@@ -16,13 +16,6 @@ namespace Lab6
                 for (int j = 0; j < rowCount; j++)
                 {
                     arrayCopy[i, j] = array[rowCount - 1 - j, i];
-                }
-            }
-
-            for (int i = 0; i < array.GetLength(1); i++)
-            {
-                for (int j = 0; j < array.GetLength(0); j++)
-                {
                     Console.Write("{0, -10}", arrayCopy[i, j]);
                 }
                 Console.WriteLine();
@@ -75,3 +68,13 @@ namespace Lab6
         }
     }
 }
+
+/*
+            for (int i = 0; i < columnCount; i++)
+            {
+                for (int j = 0; j < rowCount; j++)
+                {
+                    arrayCopy[i, j] = array[rowCount - 1 - j, i];
+                }
+            }
+            */
