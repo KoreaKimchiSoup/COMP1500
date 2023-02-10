@@ -11,19 +11,27 @@ namespace Lab6
 
             int[,] arrayCopy = new int[columnCount, rowCount];
 
+            for (int i = 0; i < columnCount; i++)
+            {
+                for (int j = 0; j < rowCount; j++)
+                {
+                    arrayCopy[i, j] = array[rowCount - 1 - j, i];
+                }
+            }
+
             if (rowCount == 1)
             {
                 for (int i = 0; i < array.GetLength(0) - 1; i++)
                 {
                     for (int j = 0; j < array.GetLength(1) - 1; j++)
                     {
-                        Console.Write(arrayCopy[i, j] + " ");
+                        Console.WriteLine(arrayCopy[i, j] + " ");
                     }
                     Console.WriteLine();
                 }
             }
 
-            if (columnCount == 1)
+            else if (columnCount == 1)
             {
                 for (int i = 0; i < array.GetLength(0) - 1; i++)
                 {
@@ -32,14 +40,6 @@ namespace Lab6
                         Console.Write(arrayCopy[i, j] + " ");
                     }
                     Console.WriteLine();
-                }
-            }
-
-            for (int i = 0; i < columnCount; i++)
-            {
-                for (int j = 0; j < rowCount; j++)
-                {
-                    arrayCopy[i, j] = array[rowCount - 1 - j, i];
                 }
             }
 
@@ -75,30 +75,16 @@ namespace Lab6
                 }
             }
 
+            else if (mode == EMode.DiagonalShift)
             {
-                int rowCount = array.GetLength(0);
-                int colCount = array.GetLength(1);
-
-                if (mode == EMode.DiagonalShift)
+                for (int i = 0; i < array.GetLength(0); i++)
                 {
-                    int temp = array[rowCount - 1, colCount - 1];
-                    for (int i = rowCount - 1; i > 0; i--)
+                    for (int j = i; j < array.GetLength(1); j++)
                     {
-                        array[i, colCount - 1] = array[i - 1, colCount - 1];
+                        int temp = array[i, j];
+                        array[i, j] = array[j, i];
+                        array[j, i] = temp;
                     }
-                    for (int j = colCount - 1; j > 0; j--)
-                    {
-                        array[0, j] = array[0, j - 1];
-                    }
-                    for (int i = 0; i < rowCount - 1; i++)
-                    {
-                        array[i, 0] = array[i + 1, 0];
-                    }
-                    for (int j = 0; j < colCount - 1; j++)
-                    {
-                        array[rowCount - 1, j] = array[rowCount - 1, j + 1];
-                    }
-                    array[1, colCount - 1] = temp;
                 }
             }
         }

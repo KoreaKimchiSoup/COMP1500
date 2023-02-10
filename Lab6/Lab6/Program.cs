@@ -7,22 +7,16 @@ namespace Lab6
     {
         static void Main(string[] args)
         {
-            int[,] data = new int[1, 6]
+            int[,] data = new int[5, 6]
             {
                 {  1,  2,  3,  4,  5,  6 },
+                { 11, 12, 13, 14, 15, 16 },
+                { 21, 22, 23, 24, 25, 26 },
+                { 31, 32, 33, 34, 35, 36 },
+                { 41, 42, 43, 44, 45, 46 }
             };
 
             int[,] rotated = Lab6.Rotate90Degrees(data);
-
-            // 출력
-            for (int i = 0; i < rotated.GetLength(0); i++)
-            {
-                for (int j = 0; j < rotated.GetLength(1); j++)
-                {
-                    Console.Write(rotated[i, j] + " ");
-                }
-                Console.WriteLine();
-            }
         }
     }
 }
