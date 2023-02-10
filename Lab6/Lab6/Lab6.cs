@@ -1,4 +1,6 @@
-﻿namespace Lab6
+﻿using System;
+
+namespace Lab6
 {
     public static class Lab6
     {
@@ -9,13 +11,36 @@
 
             int[,] arrayCopy = new int[columnCount, rowCount];
 
+            if (rowCount == 1)
+            {
+                for (int i = 0; i < array.GetLength(0) - 1; i++)
+                {
+                    for (int j = 0; j < array.GetLength(1) - 1; j++)
+                    {
+                        Console.Write(arrayCopy[i, j] + " ");
+                    }
+                    Console.WriteLine();
+                }
+            }
+
+            if (columnCount == 1)
+            {
+                for (int i = 0; i < array.GetLength(0) - 1; i++)
+                {
+                    for (int j = 0; j < array.GetLength(1) - 1; j++)
+                    {
+                        Console.Write(arrayCopy[i, j] + " ");
+                    }
+                    Console.WriteLine();
+                }
+            }
+
             for (int i = 0; i < columnCount; i++)
             {
                 for (int j = 0; j < rowCount; j++)
                 {
                     arrayCopy[i, j] = array[rowCount - 1 - j, i];
                 }
-                System.Console.WriteLine();
             }
 
             return arrayCopy;
@@ -23,7 +48,7 @@
 
         public static void TransformArray(int[,] array, EMode eMode)
         {
-            EMode mode = EMode.HorizontalMirror;
+            EMode mode = EMode.None;
             if (mode == EMode.HorizontalMirror)
             {
                 for (int i = 0; i < array.GetLength(0); i++)
