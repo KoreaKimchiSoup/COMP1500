@@ -19,28 +19,13 @@ namespace Lab6
                 }
             }
 
-            if (rowCount == 1)
+            for (int i = 0; i < array.GetLength(1); i++)
             {
-                for (int i = 0; i < array.GetLength(0) - 1; i++)
+                for (int j = 0; j < array.GetLength(0); j++)
                 {
-                    for (int j = 0; j < array.GetLength(1) - 1; j++)
-                    {
-                        Console.WriteLine(arrayCopy[i, j] + " ");
-                    }
-                    Console.WriteLine();
+                    Console.Write("{0, -10}", arrayCopy[i, j]);
                 }
-            }
-
-            else if (columnCount == 1)
-            {
-                for (int i = 0; i < array.GetLength(0) - 1; i++)
-                {
-                    for (int j = 0; j < array.GetLength(1) - 1; j++)
-                    {
-                        Console.Write(arrayCopy[i, j] + " ");
-                    }
-                    Console.WriteLine();
-                }
+                Console.WriteLine();
             }
 
             return arrayCopy;
