@@ -23,20 +23,35 @@ namespace Lab6
 
         public static void TransformArray(int[,] array, EMode mode)
         {
-            int column = array.GetLength(1);
-            int row = array.GetLength(0);
-
             if (mode == EMode.HorizontalMirror)
             {
-                
+                for (int i = 0; i < array.GetLength(0); i++)
+                {
+                    for (int j = 0; j < array.GetLength(1) / 2; j++)
+                    {
+                        int temp = array[i, j];
+                        array[i, j] = array[i, array.GetLength(1) - j - 1];
+                        array[i, array.GetLength(1) - j - 1] = temp;
+                    }
+                }
             }
+
             else if (mode == EMode.VerticalMirror)
             {
-
+                for (int i = 0; i < array.GetLength(0) / 2; i++)
+                {
+                    for (int j = 0; j < array.GetLength(1); j++)
+                    {
+                        int temp = array[i, j];
+                        array[i, j] = array[array.GetLength(0) - i - 1, j];
+                        array[array.GetLength(0) - i - 1, j] = temp;
+                    }
+                }
             }
+
             else if (mode == EMode.DiagonalShift)
             {
-
+                
             }
         }
     }
