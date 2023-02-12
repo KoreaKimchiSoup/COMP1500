@@ -12,33 +12,28 @@ namespace Assignment2
             }
 
             char[,] canvas = new char[height, width];
-
-            for (int i = 0; i < height; i++)
+            for (int i = 0; i < canvas.GetLength(0); i++)
             {
-                for (int j = 0; j < width; j++)
+                for (int j = 0; j < canvas.GetLength(1); j++)
                 {
-                    canvas[i, j] = '*';
-                }
-            }
-
-            if (shape == EShape.Rectangle)
-            {//123
-                for (int i = 0; i < height; i++)
-                {
-                    for (int j = 0; j < width; j++)
+                    if (i == 0 || i == canvas.GetLength(0) - 1)
                     {
-                        if (i == 0 || i == height - 1)
-                        {
-                            canvas[i, j] = '-';
-                        }
-                        else if (j == 0 || j == width - 1)
-                        {
-                            canvas[i, j] = '|';
-                        }
+                        canvas[i, j] = '-';
                     }
+                    else if (j == 0 || j == canvas.GetLength(1) - 1)
+                    {
+                        canvas[i, j] = '|';
+                    }
+                    else if (j == 0 || j == canvas.GetLength(1) - 1)
+                    {
+                        canvas[i, j] = ' ';
+                    }
+                    else if (shape == EShape.Rectangle)
+                    {
+                        canvas[i + 1, j] = '*';
+                    }                    
                 }
             }
-
             return canvas;
         }
     }
