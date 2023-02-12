@@ -4,7 +4,7 @@ using System.Diagnostics;
 namespace Lab6
 {
     class Program
-    {
+    {//123123123
         static void Main(string[] args)
         {
             int[,] data = getTestArray();
