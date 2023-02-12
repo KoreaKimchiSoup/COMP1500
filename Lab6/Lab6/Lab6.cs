@@ -3,9 +3,7 @@
 namespace Lab6
 {
     public static class Lab6
-    {asd
-        
-        /*
+    {
         public static int[,] Rotate90Degrees(int[,] array)
         {
             int columnCount = array.GetLength(1);
@@ -49,7 +47,7 @@ namespace Lab6
                     for (int j = 0; j < array.GetLength(1); j++)
                     {
                         int temp = array[i, j];
-                        array[i, j] = array[array.GetLength(0) - i - 1, j]; // asda asd asd
+                        array[i, j] = array[array.GetLength(0) - i - 1, j];
                         array[array.GetLength(0) - i - 1, j] = temp;
                     }
                 }
@@ -68,17 +66,5 @@ namespace Lab6
                 }
             }
         }
-    }
-}
-
-
-            for (int i = 0; i < columnCount; i++)
-            {
-                for (int j = 0; j < rowCount; j++)
-                {
-                    arrayCopy[i, j] = array[rowCount - 1 - j, i];
-                }
-            }
-            */
     }
 }
