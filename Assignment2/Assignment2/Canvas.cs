@@ -22,7 +22,7 @@ namespace Assignment2
             }
 
             if (shape == EShape.Rectangle)
-            {
+            {//123
                 for (int i = 0; i < height; i++)
                 {
                     for (int j = 0; j < width; j++)
