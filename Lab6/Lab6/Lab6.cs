@@ -3,7 +3,7 @@
 namespace Lab6
 {
     public static class Lab6
-    {
+    {//123123
         public static int[,] Rotate90Degrees(int[,] data)
         {
             int rows = data.GetLength(0);
