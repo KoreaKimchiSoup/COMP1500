@@ -12,6 +12,11 @@ namespace Assignment2
             }
 
             char[,] canvas = new char[height, width];
+            if (width == 0 || height == 0)
+            {
+                return new char[0, 0];
+            }
+
             for (int i = 0; i < canvas.GetLength(0); i++)
             {
                 for (int j = 0; j < canvas.GetLength(1); j++)
@@ -24,14 +29,14 @@ namespace Assignment2
                     {
                         canvas[i, j] = '|';
                     }
-                    else if (j == 0 || j == canvas.GetLength(1) - 1)
+                    else if (shape == EShape.Rectangle)
                     {
                         canvas[i, j] = ' ';
                     }
-                    else if (shape == EShape.Rectangle)
+                    else
                     {
-                        canvas[i + 1, j] = '*';
-                    }                    
+                        canvas[i, j] = ' ';
+                    }
                 }
             }
             return canvas;

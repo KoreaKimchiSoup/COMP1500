@@ -6,7 +6,7 @@ namespace Assignment2
     {
         static void Main(string[] args)
         {
-            char[,] canvas = Canvas.Draw(15, 12, EShape.Rectangle);
+            char[,] canvas = Canvas.Draw(7, 5, EShape.Rectangle);
             printCanvas(canvas);
         }
 
