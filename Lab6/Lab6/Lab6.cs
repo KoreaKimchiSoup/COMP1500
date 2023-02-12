@@ -24,9 +24,8 @@ namespace Lab6
             return arrayCopy;
         }
 
-        public static void TransformArray(int[,] array, EMode eMode)
+        public static void TransformArray(int[,] array, EMode mode)
         {
-            EMode mode = EMode.None;
             if (mode == EMode.HorizontalMirror)
             {
                 for (int i = 0; i < array.GetLength(0); i++)
@@ -54,16 +53,28 @@ namespace Lab6
             }
 
             else if (mode == EMode.DiagonalShift)
-            {
-                for (int i = 0; i < array.GetLength(0); i++)
+            {// asd
+                int rows = array.GetLength(0);
+                int cols = array.GetLength(1);
+
+                for (int i = 0; i < rows / 2; i++)
                 {
-                    for (int j = i; j < array.GetLength(1); j++)
+                    for (int j = i; j < cols - i - 1; j++)
                     {
                         int temp = array[i, j];
-                        array[i, j] = array[j, i];
+                        array[i, j] = array[rows - j - 1, cols - i - 1];
+                        array[rows - j - 1, cols - i - 1] = array[rows - i - 1, j];
+                        array[rows - i - 1, j] = array[j, i];
                         array[j, i] = temp;
                     }
                 }
+                /*
+                46   41   42   43   44   45
+                6    1    2    3    4    5
+                16   11   12   13   14   15
+                26   21   22   23   24   25
+                36   31   32   33   34   35
+                */
             }
         }
     }
