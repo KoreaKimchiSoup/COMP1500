@@ -49,7 +49,7 @@ namespace Assignment2
                 case EShape.IsoscelesRightTriangle:
                     if (width != height)
                     {
-                        return canvas = new char[0, 0];
+                        return new char[0, 0];
                     }
                     break;
             }

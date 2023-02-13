@@ -10,7 +10,7 @@ namespace Assignment2
             char[,] canvas = Canvas.Draw(1, 1, EShape.Rectangle);
             printCanvas(canvas);
 
-            canvas = Canvas.Draw(5, 5, EShape.IsoscelesTriangle);
+            canvas = Canvas.Draw(4, 5, EShape.IsoscelesTriangle);
             printCanvas(canvas);
 
             // canvas를 콘솔 창에 출력해주는 도우미 함수
