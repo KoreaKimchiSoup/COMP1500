@@ -52,35 +52,17 @@ namespace Assignment2
                         return new char[0, 0];
                     }
 
-                    for (int i = 1; i < height + 1; i++)
+                    for (uint i = 2; i < height + 2; i++)
                     {
-                        for (int j = 1; j < width + 1; j++)
+                        for (uint j = 2; j < i + 1; j++)
                         {
-                            canvas[i + 1, j + 1] = '*';
+                            canvas[i, j] = '*';
                         }
                     }
-                    /*
-                    canvas[2, 3] = ' ';
-                    canvas[2, 4] = ' ';
-                    canvas[2, 5] = ' ';
-                    canvas[2, 6] = ' ';
+                    break;
 
-                    canvas[3, 4] = ' ';
-                    canvas[3, 5] = ' ';
-                    canvas[3, 6] = ' ';
+                case EShape.IsoscelesTriangle:
 
-                    canvas[4, 5] = ' ';
-                    canvas[4, 6] = ' ';
-
-                    canvas[5, 6] = ' ';
-                    */
-                    for (int i = 2; i < height + 1; i++)
-                    {
-                        for (int j = 3; j < width + 1; j++)
-                        {
-                            canvas[i, j] = ' ';
-                        }
-                    }
                     break;
             }
 
