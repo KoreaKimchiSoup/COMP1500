@@ -62,7 +62,20 @@ namespace Assignment2
                     break;
 
                 case EShape.IsoscelesTriangle:
+                    if (width != height * 2 - 1)
+                    {
+                        return new char[0, 0];
+                    }
 
+                    for (uint i = height - 2; i < height + 2; i++)
+                    {
+                        for (uint j = width - 2; j > width + 2; j -= 1)
+                        {
+                            j = j - 1;
+                            canvas[i, j] = '*';
+                        }
+                    }
+                    
                     break;
             }
 
