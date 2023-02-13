@@ -34,6 +34,16 @@ namespace Assignment2
                             }
                         }
                     }
+
+                    for (int i = 1; i < canvas.GetLength(1) - 1; i++)
+                    {
+                        canvas[1, i] = ' ';
+                    }
+
+                    for (int i = 1; i < canvas.GetLength(1) - 1; i++)
+                    {
+                        canvas[canvas.GetLength(0) - 2, i] = ' ';
+                    }
                     break;
 
                 case EShape.IsoscelesRightTriangle:
@@ -48,19 +58,6 @@ namespace Assignment2
                     // 코딩
                     break;
             }
-
-            for (int i = 1; i < canvas.GetLength(1) - 1; i++)
-            {
-                canvas[1, i] = ' ';
-            }
-            
-            for (int i = 1; i < canvas.GetLength(1) - 1; i++)
-            {
-                canvas[canvas.GetLength(0) - 2, i] = ' ';
-            }
-            
-
-
             return canvas;
         }
     }
