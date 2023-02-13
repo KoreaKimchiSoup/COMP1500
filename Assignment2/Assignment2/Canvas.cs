@@ -6,59 +6,62 @@ namespace Assignment2
     {
         public static char[,] Draw(uint width, uint height, EShape shape)
         {
-            char[,] canvas = new char[height, width];
+            if (width == 0 || height == 0)
+            {
+                return new char[0, 0];
+            }
 
-            switch (shape)
+            char[,] canvas = new char[height + 4, width + 4];
+
+            for (int i = 0; i < height + 4; i++)
+            {
+                for (int j = 0; j < width + 4; j++)
+                {
+                    if (i == 0 || i == height + 3)
+                    {
+                        canvas[i, j] = '-';
+                    }
+
+                    else if (j == 0 || j == width + 3)
+                    {
+                        canvas[i, j] = '|';
+                    }
+
+                    else
+                    {
+                        canvas[i, j] = ' ';
+                    }
+                }
+            }
+
+            switch(shape)
             {
                 case EShape.Rectangle:
-                    if (width == 0 && height == 0)
+                    for (int i = 1; i < height + 1; i++)
                     {
-                        return new char[0, 0];
-                    }
-
-                    for (int i = 0; i < canvas.GetLength(0); i++)
-                    {
-                        for (int j = 0; j < canvas.GetLength(1); j++)
+                        for (int j = 1; j < width + 1; j++)
                         {
-                            if (i == 0 || i == canvas.GetLength(0) - 1) // 0 or 4
-                            {
-                                canvas[i, j] = '-';
-                            }
-                            else if (j == 0 || j == canvas.GetLength(1) - 1) // 0 or 5
-                            {
-                                canvas[i, j] = '|';
-                            }
-                            else if (shape == EShape.Rectangle)
-                            {
-                                canvas[i, j] = '*';
-                            }
+                            canvas[i + 1, j + 1] = '*';
                         }
-                    }
-
-                    for (int i = 1; i < canvas.GetLength(1) - 1; i++)
-                    {
-                        canvas[1, i] = ' ';
-                    }
-
-                    for (int i = 1; i < canvas.GetLength(1) - 1; i++)
-                    {
-                        canvas[canvas.GetLength(0) - 2, i] = ' ';
                     }
                     break;
 
                 case EShape.IsoscelesRightTriangle:
-                    // 코딩
-                    break;
-
-                case EShape.IsoscelesTriangle:
-                    // 코딩
-                    break;
-
-                case EShape.Circle:
-                    // 코딩
+                    if (width != height)
+                    {
+                        return canvas = new char[0, 0];
+                    }
                     break;
             }
+
             return canvas;
         }
+        
+        public static bool IsShape(char[,] canvas, EShape shape)
+        {
+
+            return false;
+        }
+        
     }
 }
