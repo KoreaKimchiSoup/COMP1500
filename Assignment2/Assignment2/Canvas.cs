@@ -31,7 +31,7 @@ namespace Assignment2
                     }
                     else if (shape == EShape.Rectangle)
                     {
-                        canvas[i, j] = ' ';
+                        canvas[i, j] = '*';
                     }
                     else
                     {
