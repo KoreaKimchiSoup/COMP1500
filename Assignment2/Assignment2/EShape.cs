@@ -3,8 +3,8 @@
     public enum EShape
     {
         Rectangle,
-        Square,
-        Circle,
-        Triangle
-    }
+        IsoscelesRightTriangle,
+        IsoscelesTriangle,
+        Circle
+    };
 }
