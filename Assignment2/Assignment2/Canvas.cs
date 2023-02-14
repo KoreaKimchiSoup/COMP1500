@@ -89,7 +89,6 @@ namespace Assignment2
 
         public static bool IsShape(char[,] canvas, EShape shape)
         {
-            return false;
             /*
             canvas와 똑같은 행/열 길이를 가진 newCanvas를 만든다.
             shape 인자를 파악해서 newCanvas에 shape에 맞는 도형을 그린다.

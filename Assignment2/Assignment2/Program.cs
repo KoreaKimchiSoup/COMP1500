@@ -15,8 +15,6 @@ namespace Assignment2
             Canvas.IsShape(canvas, EShape.IsoscelesTriangle); //false
 
             canvas = Canvas.Draw(0, 0, EShape.Rectangle);
-            bool bBool = true;
-            Console.WriteLine(bBool);
 
             Canvas.IsShape(canvas, EShape.Circle); //false
             Canvas.IsShape(canvas, EShape.Rectangle); //true
