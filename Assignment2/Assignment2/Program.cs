@@ -7,12 +7,21 @@ namespace Assignment2
     {
         static void Main(string[] args)
         {
-            char[,] canvas = Canvas.Draw(10, 8, EShape.Rectangle);
-            printCanvas(canvas);
+            char[,] canvas = new char[0, 0];
 
-            Debug.Assert(Canvas.IsShape(canvas, EShape.Rectangle));
-            Debug.Assert(!Canvas.IsShape(canvas, EShape.IsoscelesRightTriangle));
-            Debug.Assert(!Canvas.IsShape(canvas, EShape.IsoscelesTriangle));
+            Canvas.IsShape(canvas, EShape.Circle); //false
+            Canvas.IsShape(canvas, EShape.Rectangle); //false
+            Canvas.IsShape(canvas, EShape.IsoscelesRightTriangle); //false
+            Canvas.IsShape(canvas, EShape.IsoscelesTriangle); //false
+
+            canvas = Canvas.Draw(0, 0, EShape.Rectangle);
+            bool bBool = true;
+            Console.WriteLine(bBool);
+
+            Canvas.IsShape(canvas, EShape.Circle); //false
+            Canvas.IsShape(canvas, EShape.Rectangle); //true
+            Canvas.IsShape(canvas, EShape.IsoscelesRightTriangle); //false
+            Canvas.IsShape(canvas, EShape.IsoscelesTriangle); //false
 
 
             // canvas를 콘솔 창에 출력해주는 도우미 함수
