@@ -34,6 +34,27 @@ namespace Assignment2
 
                     Console.WriteLine();
                 }
+            }/*
+            int[,] a = { 1, 2, 3, 4, 5, 6,
+                             1,2,3,4,5,6,                       
+            }
+            int[,] b = { 1, 2, 3, 4, 5, 4, };
+            */
+
+            bool bBool = aa(a, b);
+            Console.WriteLine(bBool);
+
+            static bool aa(int[] a, int[] b)
+            {
+                for (int i = 0; i < a.Length; i++)
+                {
+                    if (a[i] != b[i])
+                    {
+                        return false;
+                    }
+                }
+
+                return true;
             }
         }
     }

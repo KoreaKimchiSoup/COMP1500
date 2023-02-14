@@ -96,7 +96,7 @@ namespace Assignment2
             */
             int newWidth = canvas.GetLength(0);
             int newHeight = canvas.GetLength(1);
-
+            
             if (newWidth == 0 || newHeight == 0)
             {
                 return false;
@@ -133,9 +133,13 @@ namespace Assignment2
                         for (int j = 1; j < newWidth + 1; j++)
                         {
                             newCanvas[i + 1, j + 1] = '*';
+                            if (canvas[i, j] != newCanvas[i, j])
+                            {
+                                return false;
+                            }
                         }
                     }
-                    break;
+                    return true;
 
                 case EShape.IsoscelesRightTriangle:
                     if (newWidth != newHeight)
@@ -148,9 +152,13 @@ namespace Assignment2
                         for (uint j = 2; j < i + 1; j++)
                         {
                             newCanvas[i, j] = '*';
+                            if (canvas[i, j] != newCanvas[i, j])
+                            {
+                                return false;
+                            }
                         }
                     }
-                    break;
+                    return true;
 
                 case EShape.IsoscelesTriangle:
                     if (newWidth != newHeight * 2 - 1)
@@ -166,9 +174,15 @@ namespace Assignment2
                             {
                                 newCanvas[i + 2, j + 2] = '*';
                             }
+
+                            if (canvas[i, j] != newCanvas[i, j])
+                            {
+                                return false;
+                            }
                         }
                     }
-                    break;
+
+                    return true;
             }
 
             for (int i = 0; i < canvas.GetLength(0); i++)
