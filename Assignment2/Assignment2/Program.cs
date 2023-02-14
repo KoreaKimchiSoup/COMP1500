@@ -7,8 +7,13 @@ namespace Assignment2
     {
         static void Main(string[] args)
         {
-            char[,] canvas = Canvas.Draw(9, 5, EShape.IsoscelesTriangle);
+            char[,] canvas = Canvas.Draw(10, 8, EShape.Rectangle);
             printCanvas(canvas);
+
+            Debug.Assert(Canvas.IsShape(canvas, EShape.Rectangle));
+            Debug.Assert(!Canvas.IsShape(canvas, EShape.IsoscelesRightTriangle));
+            Debug.Assert(!Canvas.IsShape(canvas, EShape.IsoscelesTriangle));
+
 
             // canvas를 콘솔 창에 출력해주는 도우미 함수
             static void printCanvas(char[,] canvas)

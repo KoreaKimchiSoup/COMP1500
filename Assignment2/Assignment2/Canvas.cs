@@ -10,9 +10,9 @@ namespace Assignment2
             {
                 return new char[0, 0];
             }
-            
+
             char[,] canvas = new char[height + 4, width + 4];
-            
+
             for (int i = 0; i < height + 4; i++)
             {
                 for (int j = 0; j < width + 4; j++)
@@ -33,7 +33,7 @@ namespace Assignment2
                     }
                 }
             }
-            
+
             switch (shape)
             {
                 case EShape.Rectangle:
@@ -67,26 +67,127 @@ namespace Assignment2
                         return new char[0, 0];
                     }
 
-                    for (uint i = height - 2; i < height + 2; i++)
+                    for (int i = 0; i < height; i++)
                     {
-                        for (uint j = width - 2; j > width + 2; j -= 1)
+                        for (int j = 0; j < width; j++)
                         {
-                            j = j - 1;
-                            canvas[i, j] = '*';
+                            if (j >= height - i - 1 && j <= height + i - 1)
+                            {
+                                canvas[i + 2, j + 2] = '*';
+                            }
                         }
                     }
-                    
+                    break;
+
+                case EShape.Circle:
+
                     break;
             }
 
             return canvas;
         }
-        
+
         public static bool IsShape(char[,] canvas, EShape shape)
         {
+            /*
+            canvas와 똑같은 행/열 길이를 가진 newCanvas를 만든다.
+            shape 인자를 파악해서 newCanvas에 shape에 맞는 도형을 그린다.
+            canvas와 newCanvas 비교를 통해 return
+            */
+
+            int newWidth = canvas.GetLength(0);
+            int newHeight = canvas.GetLength(1);
+
+            if (newWidth == 0 || newHeight == 0)
+            {
+                return false;
+            }
+
+            char[,] newCanvas = new char[newHeight + 4, newWidth + 4];
+
+            for (int i = 0; i < newHeight + 4; i++)
+            {
+                for (int j = 0; j < newWidth + 4; j++)
+                {
+                    if (i == 0 || i == newHeight + 3)
+                    {
+                        newCanvas[i, j] = '-';
+                    }
+
+                    else if (j == 0 || j == newWidth + 3)
+                    {
+                        newCanvas[i, j] = '|';
+                    }
+
+                    else
+                    {
+                        newCanvas[i, j] = ' ';
+                    }
+                }
+            }
+
+            switch (shape)
+            {
+                case EShape.Rectangle:
+                    for (int i = 1; i < newHeight + 1; i++)
+                    {
+                        for (int j = 1; j < newWidth + 1; j++)
+                        {
+                            newCanvas[i + 1, j + 1] = '*';
+                        }
+                    }
+                    break;
+
+                case EShape.IsoscelesRightTriangle:
+                    if (newWidth != newHeight)
+                    {
+                        return false;
+                    }
+
+                    for (uint i = 2; i < newHeight + 2; i++)
+                    {
+                        for (uint j = 2; j < i + 1; j++)
+                        {
+                            newCanvas[i, j] = '*';
+                        }
+                    }
+                    break;
+
+                case EShape.IsoscelesTriangle:
+                    if (newWidth != newHeight * 2 - 1)
+                    {
+                        return false;
+                    }
+
+                    for (int i = 0; i < newHeight; i++)
+                    {
+                        for (int j = 0; j < newWidth; j++)
+                        {
+                            if (j >= newHeight - i - 1 && j <= newHeight + i - 1)
+                            {
+                                newCanvas[i + 2, j + 2] = '*';
+                            }
+                        }
+                    }
+                    break;
+
+                case EShape.Circle:
+
+                    break;
+            }
+
+            for (int i = 0; i < newWidth; i++)
+            {
+                for (int j = 0; j < newHeight; j++)
+                {
+                    if (canvas[i, j] == newCanvas[i, j])
+                    {
+                        return true;
+                    }
+                }
+            }
 
             return false;
         }
-        
     }
 }
