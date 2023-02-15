@@ -235,7 +235,7 @@ namespace Assignment2
                             if (distanceFromCenterX * distanceFromCenterX +
                                 distanceFromCenterY * distanceFromCenterY <= radius * radius)
                             {
-                                canvas[i + 2, j + 2] = '*';
+                                canvas[i , j] = '*';
                                 // + 2 씩 더해주는건 외곽선의 안으로 보정시키는 용도
                             }
                         }
