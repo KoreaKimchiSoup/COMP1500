@@ -7,20 +7,8 @@ namespace Assignment2
     {
         static void Main(string[] args)
         {
-            char[,] canvas = new char[0, 0];
-
-            Canvas.IsShape(canvas, EShape.Circle); //false
-            Canvas.IsShape(canvas, EShape.Rectangle); //false
-            Canvas.IsShape(canvas, EShape.IsoscelesRightTriangle); //false
-            Canvas.IsShape(canvas, EShape.IsoscelesTriangle); //false
-
-            canvas = Canvas.Draw(0, 0, EShape.Rectangle);
-
-            Canvas.IsShape(canvas, EShape.Circle); //false
-            Canvas.IsShape(canvas, EShape.Rectangle); //true
-            Canvas.IsShape(canvas, EShape.IsoscelesRightTriangle); //false
-            Canvas.IsShape(canvas, EShape.IsoscelesTriangle); //false
-
+            char[,] canvas = Canvas.Draw(6, 9, EShape.Rectangle);
+            printCanvas(canvas);
 
             // canvas를 콘솔 창에 출력해주는 도우미 함수
             static void printCanvas(char[,] canvas)
@@ -34,27 +22,6 @@ namespace Assignment2
 
                     Console.WriteLine();
                 }
-            }/*
-            int[,] a = { 1, 2, 3, 4, 5, 6,
-                             1,2,3,4,5,6,                       
-            }
-            int[,] b = { 1, 2, 3, 4, 5, 4, };
-            */
-
-            bool bBool = aa(a, b);
-            Console.WriteLine(bBool);
-
-            static bool aa(int[] a, int[] b)
-            {
-                for (int i = 0; i < a.Length; i++)
-                {
-                    if (a[i] != b[i])
-                    {
-                        return false;
-                    }
-                }
-
-                return true;
             }
         }
     }
