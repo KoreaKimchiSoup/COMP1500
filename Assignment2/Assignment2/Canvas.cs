@@ -121,134 +121,26 @@ namespace Assignment2
             shape 인자를 파악해서 newCanvas에 shape에 맞는 도형을 그린다.
             canvas와 newCanvas 비교를 통해 return
             */
-            uint newWidth = (uint)canvas.GetLength(0);
-            uint newHeight = (uint)canvas.GetLength(1);
-            
-            if (newWidth == 0 || newHeight == 0)
+            uint width = (uint)canvas.GetLength(0);
+            uint height = (uint)canvas.GetLength(1);
+
+            if (width == 0 || height == 0)
             {
                 return false;
             }
 
-            char[,] newCanvas = new char[newHeight + 4, newWidth + 4];
+            char[,] expected = Draw(width, height, shape);
 
-            for (int i = 0; i < newHeight + 4; i++)
+            if (width != expected.GetLength(0) || height != expected.GetLength(1))
             {
-                for (int j = 0; j < newWidth + 4; j++)
-                {
-                    if (i == 0 || i == newHeight + 3)
-                    {
-                        newCanvas[i, j] = '-';
-                    }
-
-                    else if (j == 0 || j == newWidth + 3)
-                    {
-                        newCanvas[i, j] = '|';
-                    }
-
-                    else
-                    {
-                        newCanvas[i, j] = ' ';
-                    }
-                }
+                return false;
             }
 
-            switch (shape)
+            for (int i = 0; i < height; i++)
             {
-                case EShape.Rectangle:
-                    for (int i = 1; i < newHeight + 1; i++)
-                    {
-                        for (int j = 1; j < newWidth + 1; j++)
-                        {
-                            newCanvas[i + 1, j + 1] = '*';
-                            if (canvas[i, j] != newCanvas[i, j])
-                            {
-                                return false;
-                            }
-                        }
-                    }
-                    return true;
-
-                case EShape.IsoscelesRightTriangle:
-                    if (newWidth != newHeight)
-                    {
-                        return false;
-                    }
-
-                    for (int i = 2; i < newHeight + 2; i++)
-                    {
-                        for (int j = 2; j < i + 1; j++)
-                        {
-                            newCanvas[i, j] = '*';
-                            if (canvas[i, j] != newCanvas[i, j])
-                            {
-                                return false;
-                            }
-                        }
-                    }
-                    return true;
-
-                case EShape.IsoscelesTriangle:
-                    if (newWidth != newHeight * 2 - 1)
-                    {
-                        return false;
-                    }
-
-                    for (int i = 0; i < newHeight; i++)
-                    {
-                        for (int j = 0; j < newWidth; j++)
-                        {
-                            if (j >= newHeight - i - 1 && j <= newHeight + i - 1)
-                            {
-                                newCanvas[i + 2, j + 2] = '*';
-                            }
-
-                            if (canvas[i, j] != newCanvas[i, j])
-                            {
-                                return false;
-                            }
-                        }
-                    }
-
-                    break;
-
-                case EShape.Circle:
-                    if (newWidth != newHeight)
-                    {
-                        return false;
-                    }
-
-                    if (newWidth % 2 == 0)
-                    {
-                        return false;
-                    }
-
-                    uint centerX = newWidth / 2; // 원의 중앙 좌표 x값
-                    uint centerY = newHeight / 2; // 원의 중앙 좌표 y값
-                    uint radius = newWidth / 2;     // 반지름
-
-                    for (int i = 0; i < newHeight; i++)
-                    {
-                        for (int j = 0; j < newWidth; j++)
-                        {
-                            long distanceFromCenterX = j - centerX; // 중앙 으로부터의 x값 좌표
-                            long distanceFromCenterY = i - centerY; // 중앙 으로부터의 y값 좌표
-                            if (distanceFromCenterX * distanceFromCenterX +
-                                distanceFromCenterY * distanceFromCenterY <= radius * radius)
-                            {
-                                canvas[i , j] = '*';
-                                // + 2 씩 더해주는건 외곽선의 안으로 보정시키는 용도
-                            }
-                        }
-                    }
-
-                    break;
-            }
-
-            for (int i = 0; i < canvas.GetLength(0); i++)
-            {
-                for (int j = 0; j < canvas.GetLength(1); j++)
+                for (int j = 0; j < width; j++)
                 {
-                    if (canvas[i, j] != newCanvas[i, j])
+                    if (canvas[j, i] != expected[j, i])
                     {
                         return false;
                     }
