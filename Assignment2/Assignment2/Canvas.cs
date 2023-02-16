@@ -116,13 +116,8 @@ namespace Assignment2
 
         public static bool IsShape(char[,] canvas, EShape shape)
         {
-            /*
-            canvas와 똑같은 행/열 길이를 가진 newCanvas를 만든다.
-            shape 인자를 파악해서 newCanvas에 shape에 맞는 도형을 그린다.
-            canvas와 newCanvas 비교를 통해 return
-            */
-            uint width = (uint)canvas.GetLength(0);
-            uint height = (uint)canvas.GetLength(1);
+            uint width = (uint)canvas.GetLength(1);
+            uint height = (uint)canvas.GetLength(0);
 
             if (width == 0 || height == 0)
             {
@@ -131,16 +126,16 @@ namespace Assignment2
 
             char[,] expected = Draw(width, height, shape);
 
-            if (width != expected.GetLength(0) || height != expected.GetLength(1))
+            if (width != expected.GetLength(1) || height != expected.GetLength(0))
             {
                 return false;
             }
 
-            for (int i = 0; i < height; i++)
+            for (int i = 2; i < height + 2; i++)
             {
-                for (int j = 0; j < width; j++)
+                for (int j = 2; j < width + 2; j++)
                 {
-                    if (canvas[j, i] != expected[j, i])
+                    if (canvas[i, j] != expected[i, j])
                     {
                         return false;
                     }
