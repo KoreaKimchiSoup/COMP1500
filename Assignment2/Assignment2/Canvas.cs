@@ -116,30 +116,37 @@ namespace Assignment2
 
         public static bool IsShape(char[,] canvas, EShape shape)
         {
-            uint width = (uint)canvas.GetLength(1);
-            uint height = (uint)canvas.GetLength(0);
+            uint newWidth = (uint)canvas.GetLength(1) + 4;
+            uint newHeight = (uint)canvas.GetLength(0) + 4;
 
-            if (width == 0 || height == 0)
+            char[,] newCanvas = new char[newHeight + 4, newWidth + 4];
+
+            // 외곽선 다시 구현
+
+            if (newWidth == 0 || newHeight == 0)
             {
                 return false;
             }
 
-            char[,] expected = Draw(width, height, shape);
-
-            if (width != expected.GetLength(1) || height != expected.GetLength(0))
+            if (shape == EShape.Rectangle)
             {
-                return false;
-            }
-
-            for (int i = 2; i < height + 2; i++)
-            {
-                for (int j = 2; j < width + 2; j++)
+                for (uint e = 1; e < newHeight + 1; e++)
                 {
-                    if (canvas[i, j] != expected[i, j])
+                    for (uint r = 1; r < newWidth + 1; r++)
                     {
-                        return false;
+                        newCanvas[e + 1, r + 1] = '*';
                     }
                 }
+            }
+
+            for (int a = 0; a < newHeight; a++)
+            {
+                for (int s = 0; s < newWidth; s++)
+                {
+                    Console.Write(newCanvas[a, s]);
+                }
+
+                Console.WriteLine();
             }
 
             return true;
