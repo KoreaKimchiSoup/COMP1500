@@ -37,6 +37,7 @@ namespace Assignment2
             switch (shape)
             {
                 case EShape.Rectangle:
+                    //Console.WriteLine("Draw");
                     for (uint i = 1; i < height + 1; i++)
                     {
                         for (uint j = 1; j < width + 1; j++)
@@ -47,6 +48,7 @@ namespace Assignment2
                     break;
 
                 case EShape.IsoscelesRightTriangle:
+                    //Console.WriteLine("Draw");
                     if (width != height)
                     {
                         return new char[0, 0];
@@ -116,36 +118,82 @@ namespace Assignment2
 
         public static bool IsShape(char[,] canvas, EShape shape)
         {
-            uint newWidth = (uint)canvas.GetLength(1) + 4;
-            uint newHeight = (uint)canvas.GetLength(0) + 4;
+            uint newWidth = (uint)canvas.GetLength(1); // 2
+            uint newHeight = (uint)canvas.GetLength(0); // 2
 
-            char[,] newCanvas = new char[newHeight + 4, newWidth + 4];
+            char[,] newCanvas = new char[newHeight, newWidth];
 
-            // 외곽선 다시 구현
-
-            if (newWidth == 0 || newHeight == 0)
+            // 외곽선
+            for (uint i = 0; i < newHeight; i++)
             {
-                return false;
-            }
-
-            if (shape == EShape.Rectangle)
-            {
-                for (uint e = 1; e < newHeight + 1; e++)
+                for (uint j = 0; j < newWidth; j++)
                 {
-                    for (uint r = 1; r < newWidth + 1; r++)
+                    if (i == 0 || i == newHeight - 1)
                     {
-                        newCanvas[e + 1, r + 1] = '*';
+                        newCanvas[i, j] = '-';
+                    }
+
+                    else if (j == 0 || j == newWidth - 1)
+                    {
+                        newCanvas[i, j] = '|';
+                    }
+
+                    else
+                    {
+                        newCanvas[i, j] = ' ';
                     }
                 }
             }
 
-            for (int a = 0; a < newHeight; a++)
+            // 도형 생성
+            switch (shape)
             {
-                for (int s = 0; s < newWidth; s++)
-                {
-                    Console.Write(newCanvas[a, s]);
-                }
+                case EShape.Rectangle:
+                    //Console.WriteLine("IsShape");
+                    for (uint i = 0; i < newHeight - 4; i++)
+                    {
+                        for (uint j = 0; j < newWidth - 4; j++)
+                        {
+                            newCanvas[i + 2, j + 2] = '*';
+                        }
+                    }
+                    break;
 
+                case EShape.IsoscelesRightTriangle:
+                    if (newWidth != newHeight)
+                    {
+                        return false;
+                    }
+
+                    for (uint i = 0; i < newHeight; i++)
+                    {
+                        for (uint j = 0; j < i; j++)
+                        {
+                            canvas[i, j] = '*';
+                        }
+                    }
+                    break;
+            }
+
+            // canvas와 newCanvas 비교
+            for(int i = 0; i < newWidth; i++)
+            {
+                for (int j = 0; j < newHeight; j++)
+                {
+                    if (canvas[i, j] != newCanvas[i ,j])
+                    {
+                        return false;
+                    }
+                }
+            }
+
+            // newCanvas 출력
+            for (int i = 0; i < newWidth; i++)
+            {
+                for (int j = 0; j < newHeight; j++)
+                {
+                    Console.Write(newCanvas[i, j]);
+                }
                 Console.WriteLine();
             }
 

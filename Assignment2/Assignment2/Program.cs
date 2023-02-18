@@ -9,9 +9,13 @@ namespace Assignment2
         {
             char[,] canvas = new char[0, 0];
 
-            canvas = Canvas.Draw(7, 7, EShape.Rectangle);
+            canvas = Canvas.Draw(5, 5, EShape.IsoscelesRightTriangle);
             printCanvas(canvas);
-            
+
+            Canvas.IsShape(canvas, EShape.IsoscelesRightTriangle);
+
+            bool isSameShape = Canvas.IsShape(canvas, EShape.IsoscelesRightTriangle);
+            Console.WriteLine(isSameShape);
 
             // canvas를 콘솔 창에 출력해주는 도우미 함수
             static void printCanvas(char[,] canvas)
