@@ -9,10 +9,10 @@ namespace Assignment2
         {
             char[,] canvas = new char[0, 0];
 
-            canvas = Canvas.Draw(5, 5, EShape.Circle);
+            canvas = Canvas.Draw(7, 4, EShape.IsoscelesTriangle);
             printCanvas(canvas);
 
-            Canvas.IsShape(canvas, EShape.Circle);
+            Canvas.IsShape(canvas, EShape.IsoscelesTriangle);
             
             bool isSameShape = Canvas.IsShape(canvas, EShape.IsoscelesTriangle);
             Console.WriteLine(isSameShape);

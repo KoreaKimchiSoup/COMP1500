@@ -66,14 +66,16 @@ namespace Assignment2
                     break;
 
                 case EShape.IsoscelesTriangle:
+                    Console.WriteLine(suburbWidth);
+                    Console.WriteLine(suburbHeight);
                     if (width != height * 2 - 1)
                     {
                         return new char[0, 0];
                     }
 
-                    for (uint i = 0; i < height; i++)
+                    for (uint i = 0; i < height; i++) // 6
                     {
-                        for (uint j = 0; j < width; j++)
+                        for (uint j = 0; j < width; j++) // 7
                         {
                             if (j >= height - i - 1 && j <= height + i - 1)
                             {
@@ -120,8 +122,8 @@ namespace Assignment2
 
         public static bool IsShape(char[,] canvas, EShape shape)
         {
-            uint width = (uint)canvas.GetLength(0);
-            uint height = (uint)canvas.GetLength(1);
+            uint width = (uint)canvas.GetLength(1);
+            uint height = (uint)canvas.GetLength(0);
 
             if (width == 0 || height == 0)
             {
@@ -181,26 +183,23 @@ namespace Assignment2
                     break;
 
                 case EShape.IsoscelesTriangle:
-                    if (width != height * 2 - 1)
+                    Console.WriteLine(width);
+                    Console.WriteLine(height);
+                    for (uint i = 0; i < height - 4; i++) // 6
                     {
-                        return false;
-                    }
-
-                    for (uint i = 0; i < height; i++)
-                    {
-                        for (uint j = 0; j < width; j++)
+                        for (uint j = 0; j < width; j++) // 7
                         {
                             if (j >= height - i - 1 && j <= height + i - 1)
                             {
-                                newCanvas[i, j] = '*';
+                                newCanvas[i + 2, j - 2] = '*';
                             }
                         }
                     }
+
                     break;
 
                 case EShape.Circle:
                     uint newWidth = width - 4;
-                    uint newHeight = height - 4;
                     if (width != height)
                     {
                         return false;
@@ -243,9 +242,9 @@ namespace Assignment2
 
             // canvas와 newCanvas 비교
             
-            for (int i = 0; i < width; i++)
+            for (int i = 0; i < height; i++)
             {
-                for (int j = 0; j < height; j++)
+                for (int j = 0; j < width; j++)
                 {
                     if (canvas[i, j] != newCanvas[i, j])
                     {
