@@ -8,64 +8,33 @@
             {
                 return false;
             }
-            if (array.Length == 1)
-            {
-                return false;
-            }
-            if (array[0] >= array.Length)
+            if (array.Length < 2)
             {
                 return false;
             }
 
-            // 0번 요소를 유동적이게 만들어야함 다음 번 요소는 0번 인덱스의 요소가 아닌
-            // 이동한 만큼의 인덱스에 있는 요소여야 함 -> 해답: 이동한 요소의 값을 변수에 중첩?
-            // 함수가 다시 실행될 때마다 이것을 반복?
-            if (array[0 + array[0]] != 0)
+            return PlayGameRecursive(array, array[0]);
+        }
+
+        private static bool PlayGameRecursive(uint[] array, uint currentIndex)
+        {
+            if (currentIndex >= array.Length - 1)
             {
-
-            }
-            주어진 배열의 첫 번째 요소를 확인 후 같은 인덱스값이 플레이어의 위치점이고
-
-            플레이어의 위치점에 있는 요소가 0이 아니라면 플레이어의 위치에 있는 요소값 만큼 이동합니다
-
-            이동한 거리가 배열의 크기를 벗어난다면 false 입니다
-            
-            if (현재 플레이어의 위치의 요소가 0이라면)
-            {
+                // 마지막 요소에 도달한 경우 게임 클리어 가능
                 return true;
             }
 
-            PlayGame();
-            0이 아니라면 다시 함수를 호출해서 현재 인덱스의 요소값 만큼 이동합니다
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            /*
-            for (int i = 0; i < 1; i++)
-            {
-                System.Console.WriteLine("배열의 요소는 ");
-                for (int j = 0; j < array.Length; j++)
-                {
-                    System.Console.Write($"{array[j]} ");
-                }
-                System.Console.WriteLine("입니다");
-                System.Console.WriteLine($"배열의 길이는 {array.Length} 입니다.");
-            }
-            System.Console.WriteLine($"첫 번째 요소가 {array[0]} 이므로 {array[0]} 만큼 이동하여 플레이어가 있는 위치는 " +
-                $"{array[0 + array[0]]} 입니다");
+            uint maxJump = array[currentIndex]; // 인덱스 6의 요소인 2 저장
 
-            
-            */
-            
+            // 배열 범위를 벗어나지 않는 선에서 왼쪽 혹은 오른쪽으로 이동하면서 재귀호출
+            for (uint i = 1; i <= maxJump && currentIndex + i < array.Length; i++)
+            {//                 1 <=        2                     6         + 1 < 10
+                if (PlayGameRecursive(array, currentIndex + i))
+                {
+                    return true;
+                }
+            }
+
             return false;
         }
     }
