@@ -8,9 +8,19 @@ namespace Lab7
         {
             uint[] array = new uint[0];
             bool bPass = Lab7.PlayGame(array); // false
+            Console.WriteLine(bPass);
 
             array = new uint[3] { 2, 2, 0 };
             bPass = Lab7.PlayGame(array); // true
+            Console.WriteLine(bPass);
+
+            array = new uint[3] { 3, 2, 0 };
+            bPass = Lab7.PlayGame(array); // false
+            Console.WriteLine(bPass);
+
+            array = new uint[7] { 3, 1, 4, 2, 8, 6, 0 };
+            bPass = Lab7.PlayGame(array); // true
+            Console.WriteLine(bPass);
         }
     }
 }
