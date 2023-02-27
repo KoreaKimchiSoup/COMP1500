@@ -6,7 +6,11 @@ namespace Lab7
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            uint[] array = new uint[0];
+            bool bPass = Lab7.PlayGame(array); // false
+
+            array = new uint[3] { 2, 2, 0 };
+            bPass = Lab7.PlayGame(array); // true
         }
     }
 }
