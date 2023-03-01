@@ -7,7 +7,11 @@
             if (array.Length == 0)
             {
                 return false;
-            }    
+            }
+            if (array.Length < 2)
+            {
+                return false;
+            }
             return CanJump(array, array[0]);
         }
 
@@ -27,10 +31,6 @@
             for (uint i = 1; i <= array[index]; i++)
             {
                 if (CanJump(array, index + array[index]))
-                {
-                    return true;
-                }
-                if (CanJump(array, index - array[index]))
                 {
                     return true;
                 }
