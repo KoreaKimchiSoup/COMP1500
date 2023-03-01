@@ -11,7 +11,7 @@
             return CanJump(array, array[0]);
         }
 
-        private static bool CanJump(uint[] array, uint index)
+        public static bool CanJump(uint[] array, uint index)
         {
             // 범위를 벗어나는 이동인 경우 false 반환
             if (index < 0 || index >= array.Length)
