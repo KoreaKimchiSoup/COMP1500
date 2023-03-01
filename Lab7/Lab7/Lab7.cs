@@ -6,50 +6,36 @@
         {
             if (array.Length == 0)
             {
-                System.Console.WriteLine("배열이 비어있을 수 없습니다");
                 return false;
-            }
-            if (array.Length < 2)
-            {
-                System.Console.WriteLine("배열의 길이가 1 이하이면 안됩니다");
-                return false;
-            }
-            if (array[0] >= array.Length) // 추가
-            {
-                System.Console.WriteLine("배열의 첫 번째 요소가 배열의 길이보다 크거나 같으면 안됩니다");
-                return false;
-            }
-
-            return PlayGameRecursive(array, array[0]);
+            }    
+            return CanJump(array, array[0]);
         }
 
-        public static bool PlayGameRecursive(uint[] array, uint index)
+        private static bool CanJump(uint[] array, uint index)
         {
-            if (index >= array.Length - 1)
+            // 범위를 벗어나는 이동인 경우 false 반환
+            if (index < 0 || index >= array.Length)
             {
-                // 마지막 요소에 도달한 경우 게임 클리어 가능
-                System.Console.WriteLine("마지막 요소에 도착하였습니다 클리어!");
+                return false;
+            }
+            // 마지막 요소에 도달한 경우 true 반환
+            if (index == array.Length - 1)
+            {
                 return true;
             }
-            uint maxJump = array[index];
-
-            System.Console.WriteLine($"현재 배열의 {index}번 인덱스에 위치해 있으며 요소는 {maxJump} 입니다.");
-            System.Console.WriteLine($"현재 인덱스 {index}에서 {maxJump} 만큼 이동합니다.");
-
-            // 배열 범위를 벗어나지 않는 선에서 왼쪽 혹은 오른쪽으로 이동하면서 재귀호출
-            for (uint i = 1; i <= maxJump && index + i < array.Length; i++)
-            {//                 1 <=        2                     6         + 1 < 10
-                if (index + maxJump > array.Length - 1)
+            // 현재 위치에서 갈 수 있는 범위 내에서 다음 위치를 탐색
+            for (uint i = 1; i <= array[index]; i++)
+            {
+                if (CanJump(array, index + array[index]))
                 {
-                    System.Console.WriteLine("배열의 범위를 벋어났습니다");
-                    return false;
+                    return true;
                 }
-                if (PlayGameRecursive(array, index + maxJump))
+                if (CanJump(array, index - array[index]))
                 {
                     return true;
                 }
             }
-
+            // 모든 경우에 다음 위치에 도달할 수 없는 경우 false 반환
             return false;
         }
     }
