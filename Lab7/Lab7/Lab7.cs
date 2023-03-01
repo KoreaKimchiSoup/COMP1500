@@ -23,20 +23,18 @@
                 return false;
             }
 
-            index += array[index]; // 오른쪽으로 이동함
-
             // 마지막 요소에 도달한 경우 true 반환
             if (index == array.Length - 1)
             {
                 return true;
             }
 
-            bool success = CanPlusJump(array, index);
-
-            if (!success && index == array[0]) // CanPlusJump 함수가 false 라면?
+            for (uint i = array[index]; i <= array[index]; i++)
             {
-                index -= array[index];
-                System.Console.WriteLine(index);
+                if (CanPlusJump(array, index + array[index]))
+                {
+                    return true;
+                }
             }
             // 현재 위치에서 갈 수 있는 범위 내에서 다음 위치를 탐색
 
@@ -47,11 +45,5 @@
 }
 
 /*
-            for (uint i = array[index]; i <= array[index]; i++)
-            {
-                if (CanPlusJump(array, index + array[index]))
-                {
-                    return true;
-                }
-            }
+            
             */
