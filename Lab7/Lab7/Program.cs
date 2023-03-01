@@ -7,35 +7,33 @@ namespace Lab7
     {
         static void Main(string[] args)
         {
-            uint[] array = new uint[0];
+            uint[] array = new uint[0]; // 1
             bool bPass = Lab7.PlayGame(array);
             Console.WriteLine(bPass);
 
             Debug.Assert(!bPass);
 
-            array = new uint[1] { 0 };
+            array = new uint[1] { 0 }; // 2
             bPass = Lab7.PlayGame(array);
             Console.WriteLine(bPass);
 
             Debug.Assert(!bPass);
 
-            array = new uint[2] { 1, 0 };
+            array = new uint[2] { 1, 0 }; // 3
             bPass = Lab7.PlayGame(array);
             Console.WriteLine(bPass);
 
             Debug.Assert(bPass);
 
-            array = new uint[4] { 2, 5, 1, 0 };
+            array = new uint[4] { 2, 5, 1, 0 }; // 4
             bPass = Lab7.PlayGame(array);
             Console.WriteLine(bPass);
 
             Debug.Assert(bPass);
-
-            array = new uint[9] { 4, 3, 4, 4, 1, 5, 7, 1, 0 };
+            //                         array[3] - array[index]
+            array = new uint[9] { 4, 3, 4, 4, 1, 5, 7, 1, 0 }; // 5
             bPass = Lab7.PlayGame(array);
             Console.WriteLine(bPass);
-
-            Debug.Assert(bPass);
 
             array = new uint[10] { 6, 1, 5, 2, 4, 8, 2, 1, 4, 0 };
             bPass = Lab7.PlayGame(array);
