@@ -47,7 +47,7 @@
                 return true;
             }
 
-            if (CanPlusJump(array, index + array[index - 1]))
+            if (CanPlusJump(array, index + array[index]))
             {
                 return true;
             }
