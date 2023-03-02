@@ -28,9 +28,6 @@
 
         public static bool CanPlusJump(uint[] array, uint index)
         {
-            // 현재 위치가 유효한 범위 내에 있는지 검증합니다.
-            // CanMinusJump(array, index); // array[0] - array[index - 0]의 값을 리턴함
-
             if (index >= array.Length)
             {
                 return false;
@@ -47,14 +44,9 @@
                 return true;
             }
 
-            if (CanPlusJump(array, index + array[index]))
-            {
-                return true;
-            }
-
-            // 모든 경우에 이동할 수 없는 경우 게임을 클리어할 수 없습니다.
-            return false;
+            return CanPlusJump(array, index + array[index]);
         }
+
         /*
         public static bool CanMinusJump(uint[] array, uint index)
         {
