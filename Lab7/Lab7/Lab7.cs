@@ -1,7 +1,7 @@
 ﻿namespace Lab7
 {
     public static class Lab7
-    {
+    {//asd
         public static bool PlayGame(uint[] array)
         {
             if (array.Length == 0)
