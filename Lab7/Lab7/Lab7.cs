@@ -11,10 +11,14 @@
             }
             if (array.Length < 2)
             {
-                System.Console.WriteLine("배열의 길이가 2보다 작으면 안됩니다");
+                System.Console.WriteLine("배열의 길이가 1 이하이면 안됩니다");
                 return false;
             }
-            
+            if (array[0] >= array.Length) // 추가
+            {
+                System.Console.WriteLine("배열의 첫 번째 요소가 배열의 길이보다 크면 안됩니다");
+                return false;
+            }
 
             return PlayGameRecursive(array, array[0]);
         }
@@ -23,27 +27,31 @@
         {
             if (index == array.Length - 1)
             {
-                System.Console.WriteLine("마지막 요소에 도착하였습니다");
                 return true;
             }
 
             if (index > array.Length - 1)
             {
-                System.Console.WriteLine("인덱스가 배열의 길이를 넘었습니다");
-                return false;
-            }
-
-            if (array[0] >= array.Length)
-            {
-                System.Console.WriteLine("배열의 첫 번째 요소가 배열의 길이보다 크거나 같으면 안됩니다");
                 return false;
             }
 
             uint maxJump = array[index];
 
+            // 배열 범위를 벗어나지 않는 선에서 왼쪽 혹은 오른쪽으로 이동하면서 재귀호출
+            if (index > array.Length)
+            {
+                return false;
+            }
+
             if (PlayGameRecursive(array, index + maxJump))
-            { 
+            {
                 return true;
+            }
+
+            if (maxJump < array.Length - 1)
+            {
+                maxJump = index - array[index];
+                PlayGameRecursive(array, maxJump);
             }
 
             return false;
