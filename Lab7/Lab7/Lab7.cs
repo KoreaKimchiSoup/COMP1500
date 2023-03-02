@@ -23,13 +23,20 @@
             }
 
             // 재귀함수를 호출하여 게임을 진행합니다.
-            return CanJump(array, array[0]);
+            return CanPlusJump(array, array[0]);
         }
 
-        public static bool CanJump(uint[] array, uint index)
+        public static bool CanPlusJump(uint[] array, uint index)
         {
             // 현재 위치가 유효한 범위 내에 있는지 검증합니다.
-            if (index < 0 || index >= array.Length)
+            /*
+            if (index >= array.Length)
+            {
+                CanMinusJump(array, index); // array[0] - array[index - 0]의 값을 리턴함
+            }
+            */
+
+            if (index < 0)
             {
                 return false;
             }
@@ -40,7 +47,9 @@
                 return true;
             }
 
-            if (CanJump(array, index + array[index]))
+            uint Jump = index + array[index - 1];
+
+            if (CanPlusJump(array, Jump))
             {
                 return true;
             }
@@ -48,5 +57,18 @@
             // 모든 경우에 이동할 수 없는 경우 게임을 클리어할 수 없습니다.
             return false;
         }
+        /*
+        public static bool CanMinusJump(uint[] array, uint index)
+        {
+            // array[0] - array[index - 0]의 값을 리턴함
+            uint returnIndex = array[0] - array[index - 0];
+            if (returnIndex > array.Length - 1)
+            {
+                return false;
+            }
+
+            return true;
+        }
+        */
     }
 }
