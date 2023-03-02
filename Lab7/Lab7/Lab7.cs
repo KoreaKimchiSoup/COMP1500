@@ -6,97 +6,51 @@
         {
             if (array.Length == 0)
             {
+                System.Console.WriteLine("배열이 비어있을 수 없습니다");
                 return false;
-<<<<<<< HEAD
             }
             if (array.Length < 2)
             {
+                System.Console.WriteLine("배열의 길이가 1 이하이면 안됩니다");
                 return false;
             }
-            return CanPlusJump(array, array[0]);
-=======
-            }    
-            return CanJump(array, array[0]);
->>>>>>> parent of 85c5001 (no message)
+            if (array[0] >= array.Length) // 추가
+            {
+                System.Console.WriteLine("배열의 첫 번째 요소가 배열의 길이보다 크거나 같으면 안됩니다");
+                return false;
+            }
+
+            return PlayGameRecursive(array, array[0]);
         }
 
-        public static bool CanPlusJump(uint[] array, uint index)
+        public static bool PlayGameRecursive(uint[] array, uint index)
         {
-            // 범위를 벗어나는 이동인 경우 false 반환
-            if (array[array.Length - 1] != 0)
+            if (index >= array.Length - 1)
             {
-                System.Console.WriteLine("마지막 색인은 0 이어야만 합니다");
-                return false;
-            }
-
-            if (index == 0)
-            {
-                System.Console.WriteLine("배열이 비어있으면 안 됩니다");
-                return false;
-            }
-            if (array[0] <= 0)
-            {
-                System.Console.WriteLine("시작 색인이 0보다 작거나 같을 수 없습니다");
-                return false;
-            }
-
-            if (index < 0)
-            {
-                System.Console.WriteLine("색인이 0보다 작을 수 없습니다");
-                return false;
-            }
-
-            if (index >= array.Length)
-            {
-                System.Console.WriteLine("색인이 배열의 길이보다 크거나 같을 수 없습니다");
-                return false;
-            }
-
-            // 마지막 요소에 도달한 경우 true 반환
-            if (index == array.Length - 1)
-            {
-                System.Console.WriteLine("마지막 요소에 도달하였습니다");
+                // 마지막 요소에 도달한 경우 게임 클리어 가능
+                System.Console.WriteLine("마지막 요소에 도착하였습니다 클리어!");
                 return true;
             }
+            uint maxJump = array[index];
 
-            uint indexAddArrayIndex = index + array[index];
-            //  index + array[index] 디버깅
-            
+            System.Console.WriteLine($"현재 배열의 {index}번 인덱스에 위치해 있으며 요소는 {maxJump} 입니다.");
+            System.Console.WriteLine($"현재 인덱스 {index}에서 {maxJump} 만큼 이동합니다.");
 
-            if (indexAddArrayIndex > array.Length - 1)
-            {
-                indexAddArrayIndex = array[0] - 1;
-                //minusIndex 0으로 계속 초기화 되는거 수정 (전역변수로 선언 하면 안됨) 
-            }
-
-            if (CanPlusJump(array, indexAddArrayIndex))
-            {
-                return true;
-            }
-            // 현재 위치에서 갈 수 있는 범위 내에서 다음 위치를 탐색
-<<<<<<< HEAD
-
-=======
-            for (uint i = 1; i <= array[index]; i++)
-            {
-                if (CanJump(array, index + array[index]))
+            // 배열 범위를 벗어나지 않는 선에서 왼쪽 혹은 오른쪽으로 이동하면서 재귀호출
+            for (uint i = 1; i <= maxJump && index + i < array.Length; i++)
+            {//                 1 <=        2                     6         + 1 < 10
+                if (index + maxJump > array.Length - 1)
                 {
-                    return true;
+                    System.Console.WriteLine("배열의 범위를 벋어났습니다");
+                    return false;
                 }
-                if (CanJump(array, index - array[index]))
+                if (PlayGameRecursive(array, index + maxJump))
                 {
                     return true;
                 }
             }
->>>>>>> parent of 85c5001 (no message)
-            // 모든 경우에 다음 위치에 도달할 수 없는 경우 false 반환
+
             return false;
-        }
-
-        public static uint MinusIndex(uint minusIndex)
-        {
-            uint returnMinusIndex = 0;
-            return returnMinusIndex++;
         }
     }
 }
