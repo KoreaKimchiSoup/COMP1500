@@ -47,9 +47,7 @@
                 return true;
             }
 
-            uint Jump = index + array[index - 1];
-
-            if (CanPlusJump(array, Jump))
+            if (CanPlusJump(array, index + array[index - 1]))
             {
                 return true;
             }
