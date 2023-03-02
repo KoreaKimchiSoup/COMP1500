@@ -18,7 +18,12 @@
         public static bool CanPlusJump(uint[] array, uint index)
         {
             // 범위를 벗어나는 이동인 경우 false 반환
-            if (index < 0 || index >= array.Length)
+            if (index < 0)
+            {
+                return false;
+            }
+
+            if (index > array.Length)
             {
                 return false;
             }
@@ -29,12 +34,16 @@
                 return true;
             }
 
-            for (uint i = array[index]; i <= array[index]; i++)
+            uint indexAddArrayIndex = index + array[index];
+
+            if (indexAddArrayIndex > array.Length - 1)
             {
-                if (CanPlusJump(array, index + array[index]))
-                {
-                    return true;
-                }
+                indexAddArrayIndex = array[0] - 1;
+            }
+            
+            if (CanPlusJump(array, indexAddArrayIndex))
+            {
+                return true;
             }
             // 현재 위치에서 갈 수 있는 범위 내에서 다음 위치를 탐색
 
