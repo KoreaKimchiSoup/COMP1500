@@ -23,7 +23,7 @@
                 return false;
             }
 
-            if (index > array.Length)
+            if (index >= array.Length)
             {
                 return false;
             }
@@ -35,12 +35,16 @@
             }
 
             uint indexAddArrayIndex = index + array[index];
+            //  index + array[index] 디버깅
+            uint minusIndex = 0;
 
             if (indexAddArrayIndex > array.Length - 1)
             {
-                indexAddArrayIndex = array[0] - 1;
+                minusIndex++;
+                indexAddArrayIndex = array[0] - minusIndex;
+                //minusIndex 0으로 계속 초기화 되는거 수정
             }
-            
+
             if (CanPlusJump(array, indexAddArrayIndex))
             {
                 return true;
