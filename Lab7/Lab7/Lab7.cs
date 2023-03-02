@@ -7,12 +7,17 @@
             if (array.Length == 0)
             {
                 return false;
+<<<<<<< HEAD
             }
             if (array.Length < 2)
             {
                 return false;
             }
             return CanPlusJump(array, array[0]);
+=======
+            }    
+            return CanJump(array, array[0]);
+>>>>>>> parent of 85c5001 (no message)
         }
 
         public static bool CanPlusJump(uint[] array, uint index)
@@ -69,7 +74,21 @@
                 return true;
             }
             // 현재 위치에서 갈 수 있는 범위 내에서 다음 위치를 탐색
+<<<<<<< HEAD
 
+=======
+            for (uint i = 1; i <= array[index]; i++)
+            {
+                if (CanJump(array, index + array[index]))
+                {
+                    return true;
+                }
+                if (CanJump(array, index - array[index]))
+                {
+                    return true;
+                }
+            }
+>>>>>>> parent of 85c5001 (no message)
             // 모든 경우에 다음 위치에 도달할 수 없는 경우 false 반환
             return false;
         }
