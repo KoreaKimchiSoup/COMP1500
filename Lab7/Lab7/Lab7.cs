@@ -1,59 +1,51 @@
 ﻿namespace Lab7
 {
     public static class Lab7
-    {//asd
+    {
         public static bool PlayGame(uint[] array)
         {
-            if (array.Length == 0)
-            {
-                System.Console.WriteLine("배열이 비어있을 수 없습니다");
-                return false;
-            }
+            // 입력받은 배열이 유효한지 검증합니다.
             if (array.Length < 2)
             {
-                System.Console.WriteLine("배열의 길이가 1 이하이면 안됩니다");
                 return false;
             }
-            if (array[0] >= array.Length) // 추가
+            if (array[0] >= array.Length)
             {
-                System.Console.WriteLine("배열의 첫 번째 요소가 배열의 길이보다 크면 안됩니다");
+                return false;
+            }
+            if (array[0] == 0)
+            {
+                return false;
+            }
+            if (array[array.Length - 1] != 0)
+            {
                 return false;
             }
 
-            return PlayGameRecursive(array, array[0]);
+            // 재귀함수를 호출하여 게임을 진행합니다.
+            return CanJump(array, array[0]);
         }
 
-        public static bool PlayGameRecursive(uint[] array, uint index)
+        public static bool CanJump(uint[] array, uint index)
         {
-            if (index == array.Length - 1)
-            {
-                return true;
-            }
-
-            if (index > array.Length - 1)
+            // 현재 위치가 유효한 범위 내에 있는지 검증합니다.
+            if (index < 0 || index >= array.Length)
             {
                 return false;
             }
 
-            uint maxJump = array[index];
-
-            // 배열 범위를 벗어나지 않는 선에서 왼쪽 혹은 오른쪽으로 이동하면서 재귀호출
-            if (index > array.Length)
-            {
-                return false;
-            }
-
-            if (PlayGameRecursive(array, index + maxJump))
+            // 마지막 위치에 도달한 경우 게임을 클리어하였습니다.
+            if (array[index] == 0)
             {
                 return true;
             }
 
-            if (maxJump < array.Length - 1)
+            if (CanJump(array, index + array[index]))
             {
-                maxJump = index - array[index];
-                PlayGameRecursive(array, maxJump);
+                return true;
             }
 
+            // 모든 경우에 이동할 수 없는 경우 게임을 클리어할 수 없습니다.
             return false;
         }
     }
