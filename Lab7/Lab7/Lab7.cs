@@ -29,12 +29,12 @@
         public static bool CanPlusJump(uint[] array, uint index)
         {
             // 현재 위치가 유효한 범위 내에 있는지 검증합니다.
-            /*
+            // CanMinusJump(array, index); // array[0] - array[index - 0]의 값을 리턴함
+
             if (index >= array.Length)
             {
-                CanMinusJump(array, index); // array[0] - array[index - 0]의 값을 리턴함
+                return false;
             }
-            */
 
             if (index < 0)
             {
