@@ -2,6 +2,7 @@
 {
     public static class Lab7
     {
+        static uint minusIndex = 0;
         public static bool PlayGame(uint[] array)
         {
             if (array.Length == 0)
@@ -18,6 +19,15 @@
         public static bool CanPlusJump(uint[] array, uint index)
         {
             // 범위를 벗어나는 이동인 경우 false 반환
+            if (index == 0)
+            {
+                return false;
+            }
+            if (array[0] < 0)
+            {
+                return false;
+            }
+
             if (index < 0)
             {
                 return false;
@@ -36,13 +46,13 @@
 
             uint indexAddArrayIndex = index + array[index];
             //  index + array[index] 디버깅
-            uint minusIndex = 0;
+            
 
             if (indexAddArrayIndex > array.Length - 1)
             {
                 minusIndex++;
                 indexAddArrayIndex = array[0] - minusIndex;
-                //minusIndex 0으로 계속 초기화 되는거 수정
+                //minusIndex 0으로 계속 초기화 되는거 수정 (전역변수로 선언) 
             }
 
             if (CanPlusJump(array, indexAddArrayIndex))
