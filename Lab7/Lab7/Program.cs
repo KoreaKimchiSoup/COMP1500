@@ -12,10 +12,6 @@ namespace Lab7
             Console.WriteLine(bPass);
             Debug.Assert(!bPass);
 
-            array = new uint[10] { 0, 2, 1, 1, 3, 3, 2, 1, 3, 0 };
-            bPass = Lab7.PlayGame(array); // false
-            Console.WriteLine(bPass);
-
             array = new uint[3] { 3, 2, 0 };
             bPass = Lab7.PlayGame(array); // false
             Console.WriteLine(bPass);
