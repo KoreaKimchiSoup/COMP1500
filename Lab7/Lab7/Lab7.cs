@@ -61,7 +61,7 @@
             if (indexAddArrayIndex > array.Length - 1)
             {
                 indexAddArrayIndex = array[0] - 1;
-                //minusIndex 0으로 계속 초기화 되는거 수정 (전역변수로 선언) 
+                //minusIndex 0으로 계속 초기화 되는거 수정 (전역변수로 선언 하면 안됨) 
             }
 
             if (CanPlusJump(array, indexAddArrayIndex))
