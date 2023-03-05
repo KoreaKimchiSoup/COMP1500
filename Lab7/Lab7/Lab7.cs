@@ -23,14 +23,26 @@
             }
 
             // 재귀함수를 호출하여 게임을 진행합니다.
-            return CanPlusJump(array, array[0]);
+            return ArrayJumpRecursive(array, array[0]);
         }
 
-        public static bool CanPlusJump(uint[] array, uint index)
+        public static bool ArrayJumpRecursive(uint[] array, uint index)
         {
             if (index >= array.Length)
-            {
-                return false;
+            {//             3    -    2
+                index = array[0 - array[index - 0]];
+                System.Console.WriteLine(index);
+                if (array[0] - index < 0)
+                {
+                    return false;
+                }
+
+                index = array[0] - index;
+
+                if (index > array.Length - 1)
+                {
+                    return false;
+                }
             }
 
             if (index < 0)
@@ -44,13 +56,20 @@
                 return true;
             }
 
-            return CanPlusJump(array, index + array[index]);
+            return ArrayJumpRecursive(array, index + array[index]);
         }
 
         /*
+        public static uint CanMinusJump(uint[] array, uint index)
+        {
+            index
+
+            return index;
+        }
+
         public static bool CanMinusJump(uint[] array, uint index)
         {
-            // array[0] - array[index - 0]의 값을 리턴함
+            array[0] - array[index - 0]의 값을 리턴함
             uint returnIndex = array[0] - array[index - 0];
             if (returnIndex > array.Length - 1)
             {
