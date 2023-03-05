@@ -25,30 +25,23 @@ namespace Lab7
             }
 
             // 재귀함수를 호출하여 게임을 진행합니다.
-            return ArrayJumpRecursive(array, array[0]);
+            bool[] visitedIndices = new bool[array.Length];
+            return ArrayJumpRecursive(array, array[0], visitedIndices);
         }
 
-        public static bool ArrayJumpRecursive(uint[] array, uint index)
+        public static bool ArrayJumpRecursive(uint[] array, uint currentIndex, bool[] visitedIndices)
         {
-            if (index < 0)
+            if (currentIndex < 0 || currentIndex >= array.Length || visitedIndices[currentIndex])
             {
                 return false;
             }
-
-            // 마지막 위치에 도달한 경우 게임을 클리어하였습니다.
-            if (index == array.Length - 1)
+            if (array[currentIndex] == 0)
             {
                 return true;
             }
-            // 3, 4, 4, 2, 8, 6, 0
-            index = index + array[index];
-
-            if (index > array.Length - 1)
-            {
-                return false;
-            }
-
-            return ArrayJumpRecursive(array, index);
+            visitedIndices[currentIndex] = true;
+            return ArrayJumpRecursive(array, (currentIndex + array[currentIndex]), visitedIndices)
+                || ArrayJumpRecursive(array, (currentIndex - array[currentIndex]), visitedIndices);
         }
         /*
         public static uint LeftJump(uint[] array, uint index)
