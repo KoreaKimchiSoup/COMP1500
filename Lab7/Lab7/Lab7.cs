@@ -9,60 +9,53 @@
             {
                 return false;
             }
+
             if (array[0] >= array.Length)
             {
                 return false;
             }
+
             if (array[0] == 0)
             {
                 return false;
             }
+
             if (array[array.Length - 1] != 0)
             {
                 return false;
             }
 
-            // 재귀함수를 호출하여 게임을 진행합니다.
-            bool[] visitedIndices = new bool[array.Length];
-            return ArrayJumpRecursive(array, array[0], visitedIndices);
+            bool[] visitIndex = new bool[array.Length]; 
+
+            return ArrayJumpRecursive(array, array[0], visitIndex);
         }
 
-        public static bool ArrayJumpRecursive(uint[] array, uint currentIndex, bool[] visitedIndices)
+        public static bool ArrayJumpRecursive(uint[] array, uint index, bool[] visitIndex)
         {
-            if (currentIndex < 0 || currentIndex >= array.Length || visitedIndices[currentIndex])
+            if (index < 0)
             {
                 return false;
             }
-            if (array[currentIndex] == 0)
+
+            if (index >= array.Length)
+            {
+                return false;
+            }
+
+            if (visitIndex[index])
+            {
+                return false;
+            }
+
+            if (array[index] == 0)
             {
                 return true;
             }
-            visitedIndices[currentIndex] = true;
-            return ArrayJumpRecursive(array, (currentIndex + array[currentIndex]), visitedIndices)
-                || ArrayJumpRecursive(array, (currentIndex - array[currentIndex]), visitedIndices);
+
+            visitIndex[index] = true;
+
+            return ArrayJumpRecursive(array, (index + array[index]), visitIndex) ||
+                       ArrayJumpRecursive(array, (index - array[index]), visitIndex);
         }
-        /*
-        public static uint LeftJump(uint[] array, uint index)
-        {
-            // { 3, 4, 4, 2, 8, 6, 0 }
-
-            if (index < 0)
-            {
-                return 0;
-            }
-
-            index = index - array[index];
-            uint visitedIndex = 0;
-
-            if (visitedIndex == index)
-            {
-                return 0;
-            }
-
-            visitedIndex = index;
-
-            return index;
-        }
-        */
     }
 }
