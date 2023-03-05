@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace Lab7
+﻿namespace Lab7
 {
     public static class Lab7
     {
