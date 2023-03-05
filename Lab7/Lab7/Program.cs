@@ -23,7 +23,7 @@ namespace Lab7
             bPass = Lab7.PlayGame(array); // true
             Console.WriteLine(bPass);
 
-            array = new uint[7] { 3, 1, 4, 2, 8, 6, 0 };
+            array = new uint[7] { 3, 4, 4, 2, 8, 6, 0 };
             bPass = Lab7.PlayGame(array); // true
             Console.WriteLine(bPass);
 
