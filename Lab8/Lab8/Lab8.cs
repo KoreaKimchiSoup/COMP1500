@@ -42,7 +42,7 @@ namespace Lab8
                     for (int k = 1; k < tokens3.Length; ++k)
                     {
                         // builder.AppendFormat("        {0}{1}\n", "- ", tokens3[k]);
-                        builder.AppendLine($"        {tokens3[k]}");
+                        builder.AppendLine($"        - {tokens3[k]}");
                     }
                     
                     alphabetIndex++;

@@ -7,148 +7,55 @@ namespace Lab8
     {
         static void Main(string[] args)
         {
-
-            string minifiedList = "___________________________/________________________________________________________________________________________________________|_";
-            string prettifiedList = @"1) 
-    a) 
-    b) 
-    c) 
-    d) 
-    e) 
-    f) 
-    g) 
-    h) 
-    i) 
-    j) 
-    k) 
-    l) 
-    m) 
-    n) 
-    o) 
-    p) 
-    q) 
-    r) 
-    s) 
-    t) 
-    u) 
-    v) 
-    w) 
-    x) 
-    y) 
-    z) 
-    aa) 
-        - 
-    bb) 
-    cc) 
-    dd) 
-    ee) 
-    ff) 
-    gg) 
-    hh) 
-    ii) 
-    jj) 
-    kk) 
-    ll) 
-    mm) 
-    nn) 
-    oo) 
-    pp) 
-    qq) 
-    rr) 
-    ss) 
-    tt) 
-    uu) 
-    vv) 
-    ww) 
-    xx) 
-    yy) 
-    zz) 
-    aaa) 
-    bbb) 
-    ccc) 
-    ddd) 
-    eee) 
-    fff) 
-    ggg) 
-    hhh) 
-    iii) 
-    jjj) 
-    kkk) 
-    lll) 
-    mmm) 
-    nnn) 
-    ooo) 
-    ppp) 
-    qqq) 
-    rrr) 
-    sss) 
-    ttt) 
-    uuu) 
-    vvv) 
-    www) 
-    xxx) 
-    yyy) 
-    zzz) 
-    aaaa) 
-    bbbb) 
-    cccc) 
-    dddd) 
-    eeee) 
-    ffff) 
-    gggg) 
-    hhhh) 
-    iiii) 
-    jjjj) 
-    kkkk) 
-    llll) 
-    mmmm) 
-    nnnn) 
-    oooo) 
-    pppp) 
-    qqqq) 
-    rrrr) 
-    ssss) 
-    tttt) 
-    uuuu) 
-    vvvv) 
-    wwww) 
-    xxxx) 
-    yyyy) 
-    zzzz) 
-    aaaaa) 
-    bbbbb) 
-    ccccc) 
-    ddddd) 
-    eeeee) 
-    fffff) 
-    ggggg) 
-    hhhhh) 
-    iiiii) 
-    jjjjj) 
-    kkkkk) 
-    lllll) 
-    mmmmm) 
-    nnnnn) 
-    ooooo) 
-    ppppp) 
-    qqqqq) 
-    rrrrr) 
-    sssss) 
-    ttttt) 
-    uuuuu) 
-    vvvvv) 
-    wwwww) 
-    xxxxx) 
-    yyyyy) 
-    zzzzz) 
-    aaaaaa) 
-2) 
-    a) 
+            string minifiedList = "Apple|Orange|Banana";
+            string prettifiedList = @"1) Apple
+2) Orange
+3) Banana
 ";
-            Console.WriteLine($"한 줄로 표현한 목록 : {minifiedList}\n");
             string list = Lab8.PrettifyListOrNull(minifiedList);
-            Console.WriteLine($"이쁘게 복구한 목록 :\n{list}");
+            Console.WriteLine(list);
             Debug.Assert(prettifiedList == list);
+
+            Console.WriteLine("---------------------------------");
+
+            minifiedList = "Apple_Fuji_Gala|Orange|Banana_Baby_Cavendish";
+            prettifiedList = @"1) Apple
+    a) Fuji
+    b) Gala
+2) Orange
+3) Banana
+    a) Baby
+    b) Cavendish
+";
+
+            list = Lab8.PrettifyListOrNull(minifiedList);
+            Console.WriteLine(list);
+            Debug.Assert(prettifiedList == list);
+
+            Console.WriteLine("---------------------------------");
+
+            minifiedList = "Week 1_Course Explanation/it's fun/it's awesome_Hello World_Types of Programming Languages|Week 2_Console output_Variables_Primitive Types|Week 3_Casting_Operator_String_Console input";
+            prettifiedList = @"1) Week 1
+    a) Course Explanation
+        - it's fun
+        - it's awesome
+    b) Hello World
+    c) Types of Programming Languages
+2) Week 2
+    a) Console output
+    b) Variables
+    c) Primitive Types
+3) Week 3
+    a) Casting
+    b) Operator
+    c) String
+    d) Console input
+";
+
+            list = Lab8.PrettifyListOrNull(minifiedList);
+            Console.WriteLine(list);
+            Debug.Assert(prettifiedList == list);
+
         }
     }
 }
