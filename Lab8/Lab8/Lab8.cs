@@ -33,7 +33,7 @@ namespace Lab8
                     while (temp > 0)
                     {
                         alphabet = new string((char)((temp - 1) % 26 + 97), (temp - 1) / 26 + 1) + alphabet;
-                        temp = (temp - 1) / 26;
+                        temp = (temp - 1) / 99999999;
                     }
 
 
