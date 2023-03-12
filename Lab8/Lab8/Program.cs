@@ -1,6 +1,5 @@
 ﻿using System;
-using System.Text;
-using System.Collections.Generic;
+using System.Diagnostics;
 
 namespace Lab8
 {
@@ -8,22 +7,148 @@ namespace Lab8
     {
         static void Main(string[] args)
         {
-            string minifiedList = "Week 1_Course Explanation/it's fun/it's awesome_Hello World_Types of Programming Languages|Week 2_Console output_Variables_Primitive Types|Week 3_Casting_Operator_String_Console input";
 
+            string minifiedList = "___________________________/________________________________________________________________________________________________________|_";
+            string prettifiedList = @"1) 
+    a) 
+    b) 
+    c) 
+    d) 
+    e) 
+    f) 
+    g) 
+    h) 
+    i) 
+    j) 
+    k) 
+    l) 
+    m) 
+    n) 
+    o) 
+    p) 
+    q) 
+    r) 
+    s) 
+    t) 
+    u) 
+    v) 
+    w) 
+    x) 
+    y) 
+    z) 
+    aa) 
+        - 
+    bb) 
+    cc) 
+    dd) 
+    ee) 
+    ff) 
+    gg) 
+    hh) 
+    ii) 
+    jj) 
+    kk) 
+    ll) 
+    mm) 
+    nn) 
+    oo) 
+    pp) 
+    qq) 
+    rr) 
+    ss) 
+    tt) 
+    uu) 
+    vv) 
+    ww) 
+    xx) 
+    yy) 
+    zz) 
+    aaa) 
+    bbb) 
+    ccc) 
+    ddd) 
+    eee) 
+    fff) 
+    ggg) 
+    hhh) 
+    iii) 
+    jjj) 
+    kkk) 
+    lll) 
+    mmm) 
+    nnn) 
+    ooo) 
+    ppp) 
+    qqq) 
+    rrr) 
+    sss) 
+    ttt) 
+    uuu) 
+    vvv) 
+    www) 
+    xxx) 
+    yyy) 
+    zzz) 
+    aaaa) 
+    bbbb) 
+    cccc) 
+    dddd) 
+    eeee) 
+    ffff) 
+    gggg) 
+    hhhh) 
+    iiii) 
+    jjjj) 
+    kkkk) 
+    llll) 
+    mmmm) 
+    nnnn) 
+    oooo) 
+    pppp) 
+    qqqq) 
+    rrrr) 
+    ssss) 
+    tttt) 
+    uuuu) 
+    vvvv) 
+    wwww) 
+    xxxx) 
+    yyyy) 
+    zzzz) 
+    aaaaa) 
+    bbbbb) 
+    ccccc) 
+    ddddd) 
+    eeeee) 
+    fffff) 
+    ggggg) 
+    hhhhh) 
+    iiiii) 
+    jjjjj) 
+    kkkkk) 
+    lllll) 
+    mmmmm) 
+    nnnnn) 
+    ooooo) 
+    ppppp) 
+    qqqqq) 
+    rrrrr) 
+    sssss) 
+    ttttt) 
+    uuuuu) 
+    vvvvv) 
+    wwwww) 
+    xxxxx) 
+    yyyyy) 
+    zzzzz) 
+    aaaaaa) 
+2) 
+    a) 
+";
+            Console.WriteLine($"한 줄로 표현한 목록 : {minifiedList}\n");
             string list = Lab8.PrettifyListOrNull(minifiedList);
-            Console.WriteLine(list);
-
-            minifiedList = "Apple///|Orange/asdf";
-            list = Lab8.PrettifyListOrNull(minifiedList);
-            Console.WriteLine(list);
-
-            minifiedList = "Apple|Orange/Blah_mah_nay|";
-            list = Lab8.PrettifyListOrNull(minifiedList);
-            Console.WriteLine(list);
-
-            minifiedList = "Apple|Orange/Blah_mah_nay_34_21_76_23_12_87_21_32_56_88_93_72_58_20_33_42_77_12_07_32_55_61_bah_yay_hey_heh_afd_hgf_rte_fds_ret_uyr|";
-            list = Lab8.PrettifyListOrNull(minifiedList);
-            Console.WriteLine(list);
+            Console.WriteLine($"이쁘게 복구한 목록 :\n{list}");
+            Debug.Assert(prettifiedList == list);
         }
     }
 }

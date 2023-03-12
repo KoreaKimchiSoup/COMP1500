@@ -21,7 +21,8 @@ namespace Lab8
                 string[] tokens2 = tokens1[i].Split('_');
 
                 levelOneIndex++;
-                builder.AppendFormat("{0}) {1}\n", levelOneIndex, tokens2[0]);
+                // builder.AppendFormat("{0}) {1}\n", levelOneIndex, tokens2[0]);
+                builder.AppendLine($"{levelOneIndex}) {tokens2[0]}");
 
                 for (int j = 1; j < tokens2.Length; ++j)
                 {
@@ -35,13 +36,15 @@ namespace Lab8
                         temp = (temp - 1) / 26;
                     }
 
-                    builder.AppendFormat("    {0}) {1}\n", alphabet, tokens3[0]);
+                    // builder.AppendFormat("    {0}) {1}\n", alphabet, tokens3[0]);
+                    builder.AppendLine($"    {alphabet}) {tokens3[0]}");
 
                     for (int k = 1; k < tokens3.Length; ++k)
                     {
-                        builder.AppendFormat("        {0}{1}\n", "- ", tokens3[k]);
+                        // builder.AppendFormat("        {0}{1}\n", "- ", tokens3[k]);
+                        builder.AppendLine($"        {tokens3[k]}");
                     }
-
+                    
                     alphabetIndex++;
                 }
 
