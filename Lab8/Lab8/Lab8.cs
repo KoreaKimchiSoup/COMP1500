@@ -1,5 +1,4 @@
-﻿using System.ComponentModel;
-using System.Text;
+﻿using System.Text;
 
 namespace Lab8
 {
@@ -7,13 +6,18 @@ namespace Lab8
     {
         public static string PrettifyListOrNull(string s)
         {
+            if (string.IsNullOrWhiteSpace(s))
+            {
+                return null;
+            }
+
             StringBuilder builder = new StringBuilder(4096);
             string[] tokens1 = s.Split('|');
             int level1 = 0;
             int level2 = 0;
             int level3 = 0;
             int index = 25;
-            int alphpbetIndex = 25;
+            int alphabetIndex = 25;
             char[] alphabet = "abcdefghijklmnopqrstuvwxyz".ToCharArray();
 
             for (int i = 0; i < tokens1.Length; ++i)
@@ -30,7 +34,7 @@ namespace Lab8
 
                     // 두 번째 레벨 항목
                     level2++;
-                    builder.AppendFormat("    {0}) {1}\n", alphabet[alphpbetIndex % index], tokens3[0]);
+                    builder.AppendFormat("    {0}) {1}\n", alphabet[alphabetIndex % index], tokens3[0]);
 
                     for (int k = 1; k < tokens3.Length; ++k)
                     {
@@ -39,8 +43,10 @@ namespace Lab8
                         builder.AppendFormat("        {0}{1}\n", "- ", tokens3[k]);
                     }
 
-                    alphpbetIndex++;
+                    alphabetIndex++;
                 }
+
+                alphabetIndex = 25;
             }
 
             return builder.ToString();
