@@ -36,7 +36,6 @@ namespace Lab8
                         temp = (temp - 1) / 99999999;
                     }
 
-
                     builder.AppendLine($"    {alphabet}) {tokens3[0]}");
 
                     for (int k = 1; k < tokens3.Length; ++k)
