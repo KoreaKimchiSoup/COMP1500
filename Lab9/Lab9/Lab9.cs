@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace Lab9
 {
@@ -47,25 +48,22 @@ namespace Lab9
                 만약 중복된 키가 있다면 첫 번째 값만 저장합니다.
                 keys와 values의 길이는 다를 수 있습니다. 이럴 경우 딕셔너리의 크기는 keys의 길이와 values의 길이 중 짧은 것과 같습니다.
              */
-            int listLessThanCount = 0;
-            if (keys.Count < values.Count)
+            Dictionary<string, int> combineListsToDictionary = new Dictionary<string, int>();
+
+            int minLength = Math.Min(keys.Count, values.Count);
+
+            for (int i = 0; i < minLength; i++)
             {
-                listLessThanCount = keys.Count;
-            }
-            else if (keys.Count == values.Count)
-            {
-                listLessThanCount = keys.Count;
-            }
-            else
-            {
-                listLessThanCount = values.Count;
+                if (!combineListsToDictionary.ContainsKey(keys[i]))
+                {
+                    combineListsToDictionary.Add(keys[i], values[i]);
+                }
             }
 
-            Dictionary<string, int> combineListsToDictionary = new Dictionary<string, int>(listLessThanCount);
-
-            // 딕셔너리의 중복된 키 검사
-            // 중복된 게 있으면 첫 번째로 나온 값만 combineListsToDictionary에 저장함
-            // 출력의 포맷은 [{ "a", 1  }, { "b", 2 }, { "c", 3 }] (string.Join 사용)
+            for (int i = 0; i < combineListsToDictionary.Count; i++)
+            {
+                Console.WriteLine($"{combineListsToDictionary[i].Key}: {combineListsToDictionary[i].Value}");
+            }
 
             return combineListsToDictionary;
         }
