@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text;
 using System.Collections.Generic;
 
 namespace Lab9
@@ -60,17 +61,69 @@ namespace Lab9
                 }
             }
 
-            for (int i = 0; i < combineListsToDictionary.Count; i++)
-            {
-                Console.WriteLine($"{combineListsToDictionary[i].Key}: {combineListsToDictionary[i].Value}");
+            List<string> dictionaryKeys = new List<string>(combineListsToDictionary.Keys);
+
+            StringBuilder result = new StringBuilder();
+            result.Append("[ ");
+
+            for (int i = 0; i < dictionaryKeys.Count; i++)
+            {   
+                string key = dictionaryKeys[i];
+                result.Append("{ ");
+                result.Append($"\"{key}\", {combineListsToDictionary[key]} ");
+                result.Append("}");
+
+                if (i < dictionaryKeys.Count - 1)
+                {
+                    result.Append(", ");
+                }
             }
+
+            result.Append(" ]");
+
+            Console.WriteLine(result.ToString());
 
             return combineListsToDictionary;
         }
 
         public static Dictionary<string, decimal> MergeDictionaries(Dictionary<string, int> numerators, Dictionary<string, int> denominators)
         {
-            return null;
+            Dictionary<string, decimal> result = new Dictionary<string, decimal>();
+
+            if (numerators.Count == 0 || denominators.Count == 0)
+            {
+                return result;
+            }
+
+            foreach (string key in numerators.Keys)
+            {
+                if (denominators.ContainsKey(key) && denominators[key] != 0)
+                {
+                    decimal divisionResult = (decimal)numerators[key] / denominators[key];
+                    if (divisionResult < 0)
+                    {
+                        divisionResult = Math.Abs(divisionResult);
+                    }
+                    result.Add(key, divisionResult);
+                }
+            }
+
+            Dictionary<string, decimal> result2 = MergeDictionaries(numerators, denominators);
+
+            List<KeyValuePair<string, decimal>> keyValuePairs = new List<KeyValuePair<string, decimal>>(result2);
+
+            Console.Write("[ ");
+            for (int i = 0; i < keyValuePairs.Count; i++)
+            {
+                Console.Write($"{{ {keyValuePairs[i].Key}, {keyValuePairs[i].Value} }}");
+                if (i < keyValuePairs.Count - 1)
+                {
+                    Console.Write(", ");
+                }
+            }
+            Console.WriteLine(" ]");
+
+            return result2;
         }
     }
 }
