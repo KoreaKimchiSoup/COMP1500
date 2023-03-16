@@ -88,42 +88,7 @@ namespace Lab9
 
         public static Dictionary<string, decimal> MergeDictionaries(Dictionary<string, int> numerators, Dictionary<string, int> denominators)
         {
-            Dictionary<string, decimal> result = new Dictionary<string, decimal>();
-
-            if (numerators.Count == 0 || denominators.Count == 0)
-            {
-                return result;
-            }
-
-            foreach (string key in numerators.Keys)
-            {
-                if (denominators.ContainsKey(key) && denominators[key] != 0)
-                {
-                    decimal divisionResult = (decimal)numerators[key] / denominators[key];
-                    if (divisionResult < 0)
-                    {
-                        divisionResult = Math.Abs(divisionResult);
-                    }
-                    result.Add(key, divisionResult);
-                }
-            }
-
-            Dictionary<string, decimal> result2 = MergeDictionaries(numerators, denominators);
-
-            List<KeyValuePair<string, decimal>> keyValuePairs = new List<KeyValuePair<string, decimal>>(result2);
-
-            Console.Write("[ ");
-            for (int i = 0; i < keyValuePairs.Count; i++)
-            {
-                Console.Write($"{{ {keyValuePairs[i].Key}, {keyValuePairs[i].Value} }}");
-                if (i < keyValuePairs.Count - 1)
-                {
-                    Console.Write(", ");
-                }
-            }
-            Console.WriteLine(" ]");
-
-            return result2;
+            return null;
         }
     }
 }
