@@ -84,7 +84,7 @@ namespace Lab9
             Console.WriteLine(result.ToString());
 
             return combineListsToDictionary;
-        }
+        }//asd
 
         public static Dictionary<string, decimal> MergeDictionaries(Dictionary<string, int> numerators, Dictionary<string, int> denominators)
         {
