@@ -88,7 +88,37 @@ namespace Lab9
 
         public static Dictionary<string, decimal> MergeDictionaries(Dictionary<string, int> numerators, Dictionary<string, int> denominators)
         {
-            return null;
+            Dictionary<string, decimal> dictionariDivide = new Dictionary<string, decimal>();
+
+            if (numerators.Count == 0 || denominators.Count == 0)
+            {
+                return dictionariDivide;
+            }
+
+            List<string> equlFindKeys = new List<string>(numerators.Keys);
+            for (int i = 0; i < equlFindKeys.Count; i++)
+            {
+                string key = equlFindKeys[i];
+                if (denominators.ContainsKey(key))
+                {
+                    int numerator = numerators[key];
+                    int denominator = denominators[key];
+
+                    if (denominator != 0)
+                    {
+                        decimal value = numerator / (decimal)denominator;
+
+                        if (value < 0)
+                        {
+                            value = Math.Abs(value);
+                        }
+
+                        dictionariDivide.Add(key, value);
+                    }
+                }
+            }
+
+            return dictionariDivide;
         }
     }
 }
