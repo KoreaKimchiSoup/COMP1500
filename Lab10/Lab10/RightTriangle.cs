@@ -7,28 +7,28 @@ namespace Lab10
         public uint Width { get; private set; }
         public uint Height { get; private set; }
 
-        double perimeter;
-        double area;
-        double thirdSide;
+        double Perimeter;
+        double Area;
+        double ThirdSide;
 
         public RightTriangle(uint width, uint height)
         {
             Width = width;
             Height = height;
-            area = width * height / 2;
-            thirdSide = Math.Sqrt(Math.Pow(width, 2) + Math.Pow(height, 2));
-            thirdSide = Math.Round(thirdSide, 3);
-            perimeter = width + height + thirdSide;
+            Area = (width * height) / 2;
+            ThirdSide = Math.Sqrt(Math.Pow(width, 2) + Math.Pow(height, 2));
+            ThirdSide = Math.Round(ThirdSide, 3);
+            Perimeter = width + height + ThirdSide;
         }
 
         public double GetPerimeter()
         {
-            return perimeter;
+            return Perimeter;
         }
 
         public double GetArea()
         {
-            return area;
+            return Area;
         }
     }
 }
