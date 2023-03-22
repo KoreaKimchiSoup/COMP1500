@@ -14,13 +14,11 @@ namespace Assignment4
             {
                 return mHealth;
             }
-            set
+            private set
             {
-                mHealth = value;
-
-                if (mHealth < 0) // 체력이 0 이하면안됌
+                if (mHealth > 0) // 체력이 0 이하면안됌
                 {
-                    mHealth = 0;
+                    mHealth = value;
                 }
             }
         }
@@ -32,13 +30,13 @@ namespace Assignment4
             {
                 return mAttackStat;
             }
-            set
+            private set
             {
                 mAttackStat = value;
 
-                if (mAttackStat < 0) // 공격력이 0 이하면안됌
+                if (mAttackStat > 0) // 체력이 0 이하면안됌
                 {
-                    mAttackStat = 0;
+                    mAttackStat = value;
                 }
             }
         }
@@ -50,25 +48,25 @@ namespace Assignment4
             {
                 return mDefenseStat;
             }
-            set
+            private set
             {
                 mDefenseStat = value;
 
-                if (mDefenseStat < 0) // 방어력이 0 이하면안됌
+                if (mDefenseStat > 0) // 체력이 0 이하면안됌
                 {
-                    mDefenseStat = 0;
+                    mDefenseStat = value;
                 }
             }
         }
 
-         public Monster(string name, EElementType elementType, int health, int attack, int defense)
-         {
-             Name = name;
-             ElementType = elementType;
-             Health = health;
-             AttackStat = attack;
-             DefenseStat = defense;
-         }
+        public Monster(string name, EElementType elementType, int health, int attack, int defense)
+        {
+            Name = name;
+            ElementType = elementType;
+            Health = health;
+            AttackStat = attack;
+            DefenseStat = defense;
+        }
 
         public void TakeDamage(int amount)
         {
@@ -86,7 +84,7 @@ namespace Assignment4
             double finalDamage = 1.0;
 
             // 속성 우열 가리기
-            switch(ElementType)
+            switch (ElementType)
             {
                 case EElementType.Fire:
                     if (otherMonster.ElementType == EElementType.Wind)
@@ -101,7 +99,7 @@ namespace Assignment4
                     {
                         finalDamage = defaultDamage;
                     }
-                        break;
+                    break;
 
                 case EElementType.Water:
                     if (otherMonster.ElementType == EElementType.Fire)
@@ -116,7 +114,7 @@ namespace Assignment4
                     {
                         finalDamage = defaultDamage;
                     }
-                        break;
+                    break;
 
                 case EElementType.Wind:
                     if (otherMonster.ElementType == EElementType.Ground || otherMonster.ElementType == EElementType.Water)
@@ -154,7 +152,7 @@ namespace Assignment4
                 return;
             }
 
-            otherMonster.Health -= (int)finalDamage; 
+            otherMonster.Health -= (int)finalDamage;
         }
     }
 }
