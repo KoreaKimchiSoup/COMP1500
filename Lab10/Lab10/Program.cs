@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 
 namespace Lab10
 {
@@ -6,11 +7,15 @@ namespace Lab10
     {
         static void Main(string[] args)
         {
-            Circle circle = new Circle(3);
-            Console.WriteLine(circle.Radius);
-            Console.WriteLine(circle.Diameter);
-            Console.WriteLine(circle.GetCircumference());
-            Console.WriteLine(circle.GetArea());
+            RightTriangle triangle1 = new RightTriangle(4, 7);
+
+            Debug.Assert(triangle1.Width == 4);
+            Debug.Assert(triangle1.Height == 7);
+            Console.WriteLine(triangle1.GetPerimeter());
+            Console.WriteLine(triangle1.GetArea());
+
+            //Debug.Assert(triangle1.GetPerimeter() == 19.062);
+            //Debug.Assert(triangle1.GetArea() == 14.000);
         }
     }
 }

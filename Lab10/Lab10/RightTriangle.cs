@@ -15,10 +15,9 @@ namespace Lab10
         {
             Width = width;
             Height = height;
-            Area = (width * height) / 2;
+            Area = width * height / 2;
             ThirdSide = Math.Sqrt(Math.Pow(width, 2) + Math.Pow(height, 2));
-            ThirdSide = Math.Round(ThirdSide, 3);
-            Perimeter = width + height + ThirdSide;
+            Perimeter = Math.Round(width + height + ThirdSide, 3);
         }
 
         public double GetPerimeter()
