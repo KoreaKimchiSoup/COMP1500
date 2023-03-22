@@ -6,7 +6,11 @@ namespace Lab10
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Circle circle = new Circle(3);
+            Console.WriteLine(circle.Radius);
+            Console.WriteLine(circle.Diameter);
+            Console.WriteLine(circle.GetCircumference());
+            Console.WriteLine(circle.GetArea());
         }
     }
 }
