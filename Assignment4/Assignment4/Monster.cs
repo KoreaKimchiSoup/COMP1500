@@ -83,35 +83,70 @@ namespace Assignment4
         public void Attack(Monster otherMonster)
         {
             int defaultDamage = AttackStat - otherMonster.DefenseStat;
-            int finalDamage = 1;
-            bool bElementalFlag = false;
+            double finalDamage = 1.0;
 
-            /* 속성 우열 가리기
-            if (EElementType.Fire < EElementType.Wind)
+            // 속성 우열 가리기
+            switch(ElementType)
             {
-                bElementalFlag = true;
-            }
+                case EElementType.Fire:
+                    if (otherMonster.ElementType == EElementType.Wind)
+                    {
+                        finalDamage = defaultDamage * 1.5;
+                    }
+                    else if (otherMonster.ElementType == EElementType.Water || otherMonster.ElementType == EElementType.Ground)
+                    {
+                        finalDamage = defaultDamage * 0.5;
+                    }
+                    else
+                    {
+                        finalDamage = defaultDamage;
+                    }
+                        break;
 
-            if (EElementType.Water > EElementType.Fire)
-            {
-                bElementalFlag = true;
-            }
+                case EElementType.Water:
+                    if (otherMonster.ElementType == EElementType.Fire)
+                    {
+                        finalDamage = defaultDamage * 1.5;
+                    }
+                    else if (otherMonster.ElementType == EElementType.Wind)
+                    {
+                        finalDamage = defaultDamage * 0.5;
+                    }
+                    else
+                    {
+                        finalDamage = defaultDamage;
+                    }
+                        break;
 
-            if ()
-            */
-            if (bElementalFlag)
-            {
-                finalDamage = (int)(defaultDamage * 1.5);
-            }
+                case EElementType.Wind:
+                    if (otherMonster.ElementType == EElementType.Ground || otherMonster.ElementType == EElementType.Water)
+                    {
+                        finalDamage = defaultDamage * 1.5;
+                    }
+                    else if (otherMonster.ElementType == EElementType.Fire)
+                    {
+                        finalDamage = defaultDamage * 0.5;
+                    }
+                    else
+                    {
+                        finalDamage = defaultDamage;
+                    }
+                    break;
 
-            else if (bElementalFlag)
-            {
-                finalDamage = (int)(defaultDamage * 0.5);
-            }
-
-            else
-            {
-                finalDamage = defaultDamage;
+                case EElementType.Ground:
+                    if (otherMonster.ElementType == EElementType.Fire)
+                    {
+                        finalDamage = defaultDamage * 1.5;
+                    }
+                    else if (otherMonster.ElementType == EElementType.Wind)
+                    {
+                        finalDamage = defaultDamage * 0.5;
+                    }
+                    else
+                    {
+                        finalDamage = defaultDamage;
+                    }
+                    break;
             }
 
             if (finalDamage < 1)
@@ -119,7 +154,7 @@ namespace Assignment4
                 return;
             }
 
-            otherMonster.Health -= finalDamage; 
+            otherMonster.Health -= (int)finalDamage; 
         }
     }
 }

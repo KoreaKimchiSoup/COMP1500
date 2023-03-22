@@ -2,9 +2,9 @@
 {
     public enum EElementType
     {
-        Fire,
+         Fire,
         Water,
         Wind,
-        Ground
+         Ground
     };
 }
