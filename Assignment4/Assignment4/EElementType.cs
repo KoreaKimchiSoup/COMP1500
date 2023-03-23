@@ -1,10 +1,7 @@
-﻿namespace Assignment4
-{
-    public enum EElementType
+﻿    public enum EElementType
     {
         Fire,
         Water,
         Wind,
-        Ground
+        earth
     };
-}

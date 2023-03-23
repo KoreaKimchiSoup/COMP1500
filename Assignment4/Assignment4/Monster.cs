@@ -91,7 +91,7 @@ namespace Assignment4
                     {
                         finalDamage = defaultDamage * 1.5;
                     }
-                    else if (otherMonster.ElementType == EElementType.Water || otherMonster.ElementType == EElementType.Ground)
+                    else if (otherMonster.ElementType == EElementType.Water || otherMonster.ElementType == EElementType.earth)
                     {
                         finalDamage = defaultDamage * 0.5;
                     }
@@ -117,7 +117,7 @@ namespace Assignment4
                     break;
 
                 case EElementType.Wind:
-                    if (otherMonster.ElementType == EElementType.Ground || otherMonster.ElementType == EElementType.Water)
+                    if (otherMonster.ElementType == EElementType.earth || otherMonster.ElementType == EElementType.Water)
                     {
                         finalDamage = defaultDamage * 1.5;
                     }
@@ -131,7 +131,7 @@ namespace Assignment4
                     }
                     break;
 
-                case EElementType.Ground:
+                case EElementType.earth:
                     if (otherMonster.ElementType == EElementType.Fire)
                     {
                         finalDamage = defaultDamage * 1.5;

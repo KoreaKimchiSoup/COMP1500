@@ -19,5 +19,10 @@ namespace Assignment4
         {
 
         }
+
+        public string GoToNextTurn()
+        {
+            return null;
+        }
     }
 }
