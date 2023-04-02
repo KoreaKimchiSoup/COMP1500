@@ -7,24 +7,25 @@ namespace Lab10
         public uint Width { get; private set; }
         public uint Height { get; private set; }
 
-        uint Perimeter;
-        uint Area;
+        public uint perimeter;
+        public uint area;
 
         public Rectangle(uint width, uint height)
         {
             Width = width;
             Height = height;
-            Area = width * height;
-            Perimeter = 2 * (width + height);
+            perimeter = 2 * (width + height);
+            area = width * height;
         }
 
-        public uint GetPerimeter()
+        public uint GetPerimeter() // 둘레반환
         {
-            return Perimeter;
+            return perimeter;
         }
-        public uint GetArea()
+
+        public uint GetArea() // 면적 반환
         {
-            return Area;
+            return area;
         }
     }
 }

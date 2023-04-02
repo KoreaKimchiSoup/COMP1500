@@ -1,5 +1,4 @@
-﻿using System.Data.Common;
-
+﻿
 namespace Lab6
 {
     public static class Lab6
@@ -51,6 +50,7 @@ namespace Lab6
 
             else if (mode == EMode.DiagonalShift)
             {
+<<<<<<< HEAD
                 for (int i = 0; i < array.GetLength(0) / 2; i++)
                 {
                     for (int j = 0; j < array.GetLength(1); j++)
@@ -73,6 +73,9 @@ namespace Lab6
                 26   21   22   23   24   25
                 36   31   32   33   34   35
                 */
+=======
+                //asdasdasd
+>>>>>>> origin/5
             }
         }
     }
