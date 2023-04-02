@@ -11,8 +11,6 @@ namespace Lab11
                 return false;
             }
 
-
-
             return true;
         }
 
