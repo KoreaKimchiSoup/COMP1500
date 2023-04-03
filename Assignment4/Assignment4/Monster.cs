@@ -20,14 +20,18 @@
         public void TakeDamage(int amount)
         {
             Health -= amount;
+            if (Health < 0)
+            {
+                Health = 0;
+            }
         }
 
         public void Attack(Monster otherMonster)
         {
             int baseDamage = AttackStat - otherMonster.DefenseStat;
-            int finalDamage = 1;
+            int finalDamage = 0;
 
-            switch(ElementType)
+            switch (ElementType)
             {
                 /*
                     불은 바람에게 강하나 물과 땅에는 약함
@@ -96,6 +100,11 @@
                         finalDamage = baseDamage;
                     }
                     break;
+            }
+
+            if (finalDamage < 0)
+            {
+                finalDamage = 1;
             }
 
             otherMonster.Health -= finalDamage;
