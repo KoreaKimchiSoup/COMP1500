@@ -17,7 +17,7 @@ namespace Assignment4
             */
 
             Arena arena = new Arena("5 Free For All", 5);
-            arena.LoadMonsters("C:://Some/Path/To/CSV/monsters.csv");
+            arena.LoadMonsters("C://Some/Path/To/CSV/monsters.csv");
 
             // MyMonster1 - MyMonster5가 경기장에 추가됨
         }
