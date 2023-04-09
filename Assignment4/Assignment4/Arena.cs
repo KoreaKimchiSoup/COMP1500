@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System.Collections.Generic;
+using System.IO;
 
 namespace Assignment4
 {
@@ -9,22 +10,31 @@ namespace Assignment4
         public uint Turn { get; private set; }
         public uint MonsterCount { get; private set; }
 
+        private List<Monster> monsters = new List<Monster>();
+
         public Arena(string arenaName, uint capacity)
         {
             ArenaName = arenaName;
             Capacity = capacity;
+            Turn = 0;
         }
 
         public void LoadMonsters(string filePath)
         {
-            string text = File.ReadAllText(filePath);
-
-            System.Console.WriteLine(text);
+            
         }
 
         public void GoToNextTurn()
         {
+            List<Monster> aliveMonsters = new List<Monster>();
 
+            foreach (Monster monster in monsters)
+            {
+                if (monster.Health > 0)
+                {
+                    aliveMonsters.Add(monster);
+                }
+            }
         }
 
         public string GetHealthiestOrNull()
