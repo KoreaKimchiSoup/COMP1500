@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
 
 namespace Assignment4
@@ -32,15 +33,6 @@ namespace Assignment4
                     }
 
 
-                    string[] monsterData = line.Split(',');
-                    string name = monsterData[0];
-                    EElementType elementType = (EElementType)EElementType.Parse(typeof(EElementType), monsterData[1]);
-                    int health = int.Parse(monsterData[2]);
-                    int attack = int.Parse(monsterData[3]);
-                    int defense = int.Parse(monsterData[4]);
-
-                    Monster monster = new Monster(name, elementType, health, attack, defense);
-                    mMonsters.Add(monster);
                 }
             }
         }
