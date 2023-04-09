@@ -10,7 +10,7 @@ namespace Assignment4
         public uint Turn { get; private set; }
         public uint MonsterCount { get; private set; }
 
-        private List<Monster> Monsters = new List<Monster>();
+        private List<Monster> mMonsters = new List<Monster>();
 
         public Arena(string arenaName, uint capacity)
         {
@@ -26,10 +26,11 @@ namespace Assignment4
                 string line;
                 while ((line = reader.ReadLine()) != null)
                 {
-                    if (Monsters.Count >= Capacity)
+                    if (mMonsters.Count >= Capacity)
                     {
                         break;
                     }
+
 
                     string[] monsterData = line.Split(',');
                     string name = monsterData[0];
@@ -39,7 +40,7 @@ namespace Assignment4
                     int defense = int.Parse(monsterData[4]);
 
                     Monster monster = new Monster(name, elementType, health, attack, defense);
-                    Monsters.Add(monster);
+                    mMonsters.Add(monster);
                 }
             }
         }
@@ -48,7 +49,7 @@ namespace Assignment4
         {
             List<Monster> aliveMonsters = new List<Monster>();
 
-            foreach (Monster monster in Monsters)
+            foreach (Monster monster in mMonsters)
             {
                 if (monster.Health > 0)
                 {
@@ -56,12 +57,12 @@ namespace Assignment4
                 }
             }
 
-            if (aliveMonsters.Count == 1)
+            if (mMonsters.Count == 1)
             {
                 return;
             }
 
-            if (aliveMonsters.Count == 0)
+            if (mMonsters.Count == 0)
             {
                 return;
             }
@@ -74,7 +75,7 @@ namespace Assignment4
             }
 
             List<Monster> deadMonsters = new List<Monster>();
-            foreach (Monster monster in Monsters)
+            foreach (Monster monster in mMonsters)
             {
                 if (monster.Health <= 0)
                 {
@@ -84,7 +85,7 @@ namespace Assignment4
 
             foreach (Monster deadMonster in deadMonsters)
             {
-                Monsters.Remove(deadMonster);
+                mMonsters.Remove(deadMonster);
                 MonsterCount--;
             }
 
@@ -93,17 +94,17 @@ namespace Assignment4
 
         public Monster GetHealthiestOrNull()
         {
-            if (Monsters.Count == 0)
+            if (mMonsters.Count == 0)
             {
                 return null;
             }
 
-            Monster getHealthiestMonster = Monsters[0];
-            for (int i = 0; i < Monsters.Count; ++i)
+            Monster getHealthiestMonster = mMonsters[0];
+            for (int i = 0; i < mMonsters.Count; ++i)
             {
-                if (Monsters[i].Health > getHealthiestMonster.Health)
+                if (mMonsters[i].Health > getHealthiestMonster.Health)
                 {
-                    getHealthiestMonster = Monsters[i];
+                    getHealthiestMonster = mMonsters[i];
                 }
             }
 
