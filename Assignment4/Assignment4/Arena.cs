@@ -26,15 +26,44 @@ namespace Assignment4
 
         public void GoToNextTurn()
         {
-            List<Monster> aliveMonsters = new List<Monster>();
+            List<Monster> AliveMonsters = new List<Monster>();
 
             foreach (Monster monster in monsters)
             {
                 if (monster.Health > 0)
                 {
-                    aliveMonsters.Add(monster);
+                    AliveMonsters.Add(monster);
                 }
             }
+
+            if (AliveMonsters.Count < 2)
+            {
+                return;
+            }
+
+            for (int i = 0; i < AliveMonsters.Count; ++i)
+            {
+                Monster attackMonster = AliveMonsters[i];
+                Monster targetMonster = AliveMonsters[(i + 1) % AliveMonsters.Count];
+                attackMonster.Attack(targetMonster);
+            }
+
+            List<Monster> DeadMonsters = new List<Monster>();
+            foreach (Monster monster in monsters)
+            {
+                if (monster.Health <= 0)
+                {
+                    DeadMonsters.Add(monster);
+                }
+            }
+
+            foreach (Monster deadMonster in DeadMonsters)
+            {
+                monsters.Remove(deadMonster);
+                MonsterCount--;
+            }
+
+            Turn++;
         }
 
         public string GetHealthiestOrNull()
