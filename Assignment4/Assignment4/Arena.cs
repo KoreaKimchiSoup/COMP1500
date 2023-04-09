@@ -32,7 +32,15 @@ namespace Assignment4
                         break;
                     }
 
+                    string[] monsterData = line.Split(',');
+                    string name = monsterData[0];
+                    EElementType elementType = (EElementType)Enum.Parse(typeof(EElementType), monsterData[1]);
+                    int health = int.Parse(monsterData[2]);
+                    int attack = int.Parse(monsterData[3]);
+                    int defense = int.Parse(monsterData[4]);
 
+                    Monster monster = new Monster(name, elementType, health, attack, defense);
+                    mMonsters.Add(monster);
                 }
             }
         }
@@ -82,6 +90,7 @@ namespace Assignment4
             }
 
             Turn++;
+            Console.WriteLine(Turn);
         }
 
         public Monster GetHealthiestOrNull()
@@ -100,9 +109,6 @@ namespace Assignment4
                 }
             }
 
-            // GetHealthiestOrNull() 함수는 경기장에서 체력이 가장 높은 몬스터를 반환합니다.
-            // 이 함수는 인자를 받지 않습니다.
-            // 경기장에 몬스터가 없을 경우 null을 반환해야 합니다.
             return getHealthiestMonster;
         }
     }
