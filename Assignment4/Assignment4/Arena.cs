@@ -35,6 +35,7 @@ namespace Assignment4
                     string[] monsterData = line.Split(',');
                     string name = monsterData[0];
                     EElementType elementType = (EElementType)Enum.Parse(typeof(EElementType), monsterData[1]);
+                    // Color c = (Color)Enum.Parse(typeof(Color), "Blue")
                     int health = int.Parse(monsterData[2]);
                     int attack = int.Parse(monsterData[3]);
                     int defense = int.Parse(monsterData[4]);
